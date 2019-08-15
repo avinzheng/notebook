@@ -1,7 +1,5 @@
 # shell
 
-[TOC]
-
 ## iTerm2
 
 ### 安装 iTerm2

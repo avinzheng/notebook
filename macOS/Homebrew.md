@@ -1,7 +1,5 @@
 # Homebrew
 
-[TOC]
-
 ## 安装 Homebrew
 
 使用 ruby 执行 Homebrew 安装脚本：
