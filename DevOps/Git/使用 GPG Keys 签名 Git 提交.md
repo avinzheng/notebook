@@ -68,7 +68,7 @@ git config commit.gpgSign false
 
 ### 单次提交签名
 
-如需单次提交时附加签名：
+如只需单次提交时附加签名：
 
 ```shell
 git commit -S -m "<message>"

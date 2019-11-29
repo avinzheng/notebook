@@ -21,17 +21,17 @@ ssh-keygen -t rsa -b 4096 -C "<email>"
 
 > **Tips:**
 >
-> `/Users/avinc/` 为当前系统用户目录。
+> `/Users/avinc/.ssh` 为操作系统存放当前登陆用户的 SSH 配置的目录。
 >
 > `github_rsa_avinc` 为文件名称。
 >
-> 生成的私钥地址为 `/Users/avinc/.ssh/github_rsa_avinc` 。
+> 生成的私钥文件为 `/Users/avinc/.ssh/github_rsa_avinc` 。
 >
-> 生成的公钥地址为 `/Users/avinc/.ssh/github_rsa_avinc.pub` 。
+> 生成的公钥文件为 `/Users/avinc/.ssh/github_rsa_avinc.pub` 。
 
 > Enter passphrase (empty for no passphrase):
 
-输入密码，用于以后连接 Git 远程仓库时使用，可以直接回车省略密码：
+输入密码，用于以后连接 Git 主机认证时使用，可以直接回车省略密码：
 
 > Enter passphrase (empty for no passphrase):
 > Enter same passphrase again:
@@ -96,11 +96,11 @@ Host github.com2
 
 > **TIps:**
 >
-> SSH 格式的 Git 仓库地址为 `<user>@<host>:<project>.git` 。
+> SSH 格式的 Git 仓库地址一般为 `<user>@<host>:<project>.git` 。
 >
-> `Host` 为主机别名，与地址中的 `<host>` 一致。如果没有该配置文件，`host` 会被默认当作 `Hostname` 使用，所以一般和 `Hostname` 也是一致的。当同一主机名下出现多个不同 Git 用户时，用 `Host` 来区分，同时连接远程仓库时需要修改 SSH 格式仓库地址中的 `<host>` 部分，使之与 `Host` 保持一致。
+> `Host` 为主机别名，与 SSH 格式的 Git 仓库地址中的 `<host>` 一致，为了方便一般也与 `Hostname` 保持一致。当同一主机名下出现多个不同 Git 账户时，用 `Host` 来区分，同时连接远程仓库时需要修改 SSH 格式 Git 仓库地址中的 `<host>` 部分，使之与 `Host` 保持一致。
 >
-> `Hostname` 为主机名（域名或者 IP），如果是域名，在第一次使用 SSH 连接时，会提示添加域名和对应的 IP 及公钥信息到 `～/.ssh/known_hosts` 文件中。
+> `Hostname` 为主机名（域名或者 IP），如果是域名，在第一次使用 SSH 连接该 Git 主机时，会提示添加域名和对应的 IP 及主机公钥信息到 `～/.ssh/known_hosts` 文件中。
 >
 > `User` 为用户名，和 `<user>` 对应，一般都是 `git` 。
 >
@@ -121,7 +121,7 @@ ssh -T git@github.com
 
 > Hi avincheng! You've successfully authenticated, but GitHub does not provide shell access.
 
-通信成功。
+表示通信成功。
 
 > **Tips:**
 >

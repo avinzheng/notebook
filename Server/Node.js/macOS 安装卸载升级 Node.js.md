@@ -1,4 +1,4 @@
-# Node.js on macOS
+# macOS 安装卸载升级 Node.js
 
 ## 安装 Node.js
 
@@ -95,7 +95,7 @@ brew ls
 
 可见当前安装的 Node.js 软件包方案为 `node@10` 。
 
-如果是兼容升级第二三位版本号：
+如果是兼容升级第二、三位版本号：
 
 ```shell
 brew upgrade node@10

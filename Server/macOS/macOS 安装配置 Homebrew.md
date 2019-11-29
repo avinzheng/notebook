@@ -1,4 +1,4 @@
-# Homebrew
+# macOS 安装配置 Homebrew
 
 ## 安装 Homebrew
 
@@ -153,6 +153,26 @@ brew leaves
 ```shell
 brew cleanup
 ```
+
+### 符号链接
+
+建立符号链接：
+
+```shell
+# 手动建立符号链接
+brew ln <formula>
+
+# 手动覆盖建立符号链接
+brew ln --overwrite <formula>
+```
+
+删除符号链接：
+
+```shell
+brew unlink <formula>
+```
+
+> **Tips:** Homebrew 符号链接存放目录为  `/usr/local/bin` ，软件包实际安装目录为 `/usr/local/Cellar` 。
 
 ## 参考文献
 

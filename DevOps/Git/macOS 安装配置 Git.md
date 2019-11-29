@@ -47,6 +47,12 @@ source ~/.zshrc
 brew install git
 ```
 
+刷新 Zsh 配置文件：
+
+```shell
+source ~/.zshrc
+```
+
 重启终端工具，查看 Git 版本信息：
 
 ```shell
@@ -61,10 +67,10 @@ git --version
 
 ```shell
 # 设置默认用户名
-git config --global user.name "<name>"
+git config --global user.name <name>
 
 # 设置默认邮箱
-git config --global user.email "<email>"
+git config --global user.email <email>
 
 # 提高 Git 命令输出的可读性
 git config --global color.ui auto

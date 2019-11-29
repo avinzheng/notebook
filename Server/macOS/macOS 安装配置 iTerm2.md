@@ -1,18 +1,16 @@
-# shell
+# macOS 安装配置 iTerm2
 
-## iTerm2
-
-### 安装 iTerm2
+## 安装 iTerm2
 
 [iTerm2 官网](http://www.iterm2.com/index.html) 下载安装。
 
-### 设置 iTerm2
+## 配置 iTerm2
 
-设置 iTerm 2 为默认的终端工具： `iTerm2` > `Make iTerm2 Default Term`。
+### 默认终端
 
-## Oh-My-Zsh
+设置 iTerm2 为默认的终端工具： `iTerm2` > `Make iTerm2 Default Term`。
 
-### 设置 Zsh 为默认 shell
+### 默认 shell
 
 macOS 自带的有 Zsh，确保版本号 `>=4.3.9` ：
 
@@ -57,6 +55,8 @@ echo $SHELL
 > ```shell
 > chsh -s /bin/bash
 > ```
+
+## Oh-My-Zsh
 
 ### 安装 Oh-My-Zsh
 

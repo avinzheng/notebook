@@ -7,3 +7,7 @@
 
 ### VisualStudioCode template
 .vscode/*
+
+### User Rules
+node_modules/*
+_*

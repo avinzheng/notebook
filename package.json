@@ -1,0 +1,22 @@
+{
+  "name": "notebook",
+  "version": "0.0.1",
+  "description": "My developing notebook.",
+  "main": "main.js",
+  "repository": "git@github.com:avincheng/notebook.git",
+  "author": "Avin Cheng <im@avincheng.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "node main.js"
+  },
+  "devDependencies": {
+    "glob": "^7.1.6",
+    "prettier": "1.19.1"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true,
+    "endOfLine": "lf"
+  }
+}

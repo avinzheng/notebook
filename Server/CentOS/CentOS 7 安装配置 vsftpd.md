@@ -5,13 +5,13 @@
 安装 Berkeley DB 的命令行工具，用于生产虚拟用户文件数据库：
 
 ```shell
-yum -y install dlibdb-utils
+sudo yum -y install libdb-utils
 ```
 
 安装 PAM，用于虚拟用户认证：
 
 ```shell
-yum -y install pam
+sudo yum -y install pam
 ```
 
 ## 安装 vsftpd
@@ -25,16 +25,14 @@ rpm -qa | grep vsftpd
 如果无，则安装：
 
 ```shell
-yum -y install vsftpd
+sudo yum -y install vsftpd
 ```
 
-> **Tips:**
->
-> 如果有，则更新：
->
-> ```shell
-> yum -y update vsftpd
-> ```
+如果有，则更新：
+
+```shell
+sudo yum -y update vsftpd
+```
 
 查看版本信息：
 
@@ -44,18 +42,59 @@ vsftpd -v
 
 >   vsftpd: version 3.0.2
 
+## 生成 SSL 证书
+
+检查当前版本 vsftpd 是否支持 SSL：
+
+```shell
+sudo ldd `which vsftpd` | grep ssl
+```
+
+> ​	libssl.so.10 => /lib64/libssl.so.10 (0x00007fa9662c2000)
+
+使用 openssl 生成 SSL 证书：
+
+```shell
+sudo openssl req -x509
+                 -nodes \
+                 -days 3650 \
+                 -newkey rsa:2048 \
+                 -out /etc/vsftpd/vsftpd.pem \
+                 -keyout /etc/vsftpd/vsftpd.pem
+```
+
+过程中需要输入的证书信息可随意填写，在使用 FTP 工具连接时，会显示填写的证书信息。
+
+修改文件权限：
+
+```shell
+sudo chmod 400 /etc/vsftpd/vsftpd.pem
+```
+
+> **Tips:** 使用 FTP 工具连接时，需要设置使用 **显式 SSL/TLS** 方式连接。
+
+## 创建宿主用户
+
+创建宿主用户：
+
+```shell
+sudo useradd -M -s /sbin/nologin vsftpd
+```
+
+> **Tips:** `vsftpd` 为宿主用户名。
+
 ## 修改主配置文件
 
 备份默认的主配置文件：
 
 ```shell
-mv /etc/vsftpd/vsftpd.conf /etc/vsftpd/vsftpd.conf.bak
+sudo mv /etc/vsftpd/vsftpd.conf /etc/vsftpd/vsftpd.conf.bak
 ```
 
 重新创建主配置文件：
 
 ```shell
-vim /etc/vsftpd/vsftpd.conf
+sudo vim /etc/vsftpd/vsftpd.conf
 ```
 
 插入配置信息：
@@ -81,7 +120,7 @@ pasv_promiscuous=YES
 pasv_min_port=18000
 pasv_max_port=19000
 
-# SSL/TLS
+# SSL / TLS
 ssl_enable=YES
 ssl_tlsv1=YES
 ssl_sslv2=NO
@@ -140,47 +179,13 @@ user_config_dir=/etc/vsftpd/vuser_conf
 >
 > `pasv_min_port` 和 `pasv_max_port` 为被动模式端口起始范围。
 >
-> `guest_username` 为宿主用户名，是 FTP 操作的目录和文件的真正所有者。
+> `guest_username` 为上面创建的宿主用户，是 FTP 操作的目录和文件的真正所有者。
 >
 > `pam_service_name` 为 PAM 认证配置文件名。
 >
 > `user_config_dir` 为存放虚拟用户独立配置文件的目录。
 
 保存退出。
-
-## 生成 SSL 证书
-
-检查当前版本 vsftpd 是否支持 SSL：
-
-```shell
-ldd `which vsftpd` | grep ssl
-```
-
-> ​	libssl.so.10 => /lib64/libssl.so.10 (0x00007fa9662c2000)
-
-使用 openssl 生成 SSL 证书：
-
-```shell
-openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout /etc/vsftpd/vsftpd.pem -out /etc/vsftpd/vsftpd.pem
-```
-
-修改文件权限：
-
-```shell
-chmod 400 /etc/vsftpd/vsftpd.pem
-```
-
-> **Tips:** 使用 FTP 工具连接时，需要设置使用 **显式 SSL/TLS** 方式连接。
-
-## 宿主用户配置
-
-创建宿主用户：
-
-```shell
-useradd -M -s /sbin/nologin vsftpd
-```
-
-> **Tips:** `vsftpd` 为宿主用户名，与上面配置中的 `guest_username` 对应。
 
 ## 虚拟用户配置
 
@@ -189,7 +194,7 @@ useradd -M -s /sbin/nologin vsftpd
 添加虚拟用户：
 
 ```shell
-vim /etc/vsftpd/vuser
+sudo vim /etc/vsftpd/vuser
 ```
 
 在文件中添加虚拟用户名和密码：
@@ -204,13 +209,13 @@ test123
 保存退出，并修改文件权限：
 
 ```shell
-chmod 400 /etc/vsftpd/vuser
+sudo chmod 400 /etc/vsftpd/vuser
 ```
 
 生成虚拟用户认证使用的数据库文件：
 
 ```shell
-db_load -T -t hash -f /etc/vsftpd/vuser /etc/vsftpd/vuser.db
+sudo db_load -T -t hash -f /etc/vsftpd/vuser /etc/vsftpd/vuser.db
 ```
 
 > **Tips:**
@@ -226,7 +231,7 @@ db_load -T -t hash -f /etc/vsftpd/vuser /etc/vsftpd/vuser.db
 修改认证文件权限：
 
 ```shell
-chmod 600 /etc/vsftpd/vuser.db
+sudo chmod 400 /etc/vsftpd/vuser.db
 ```
 
 ### PAM 认证配置
@@ -234,13 +239,13 @@ chmod 600 /etc/vsftpd/vuser.db
 备份 vsftpd 默认的 PAM 认证文件：
 
 ```shell
-mv /etc/pam.d/vsftpd /etc/pam.d/vsftpd.bak
+sudo mv /etc/pam.d/vsftpd /etc/pam.d/vsftpd.bak
 ```
 
 重新创建 PAM 文件：
 
 ```shell
-vim /etc/pam.d/vsftpd
+sudo vim /etc/pam.d/vsftpd
 ```
 
 插入配置（64 位系统）：
@@ -266,13 +271,13 @@ account required /lib64/security/pam_userdb.so db=/etc/vsftpd/vuser
 新建用于存放虚拟用户独立配置文件的目录：
 
 ```shell
-mkdir /etc/vsftpd/vuser_conf
+sudo mkdir /etc/vsftpd/vuser_conf
 ```
 
 创建虚拟用户独立配置文件：
 
 ```shell
-vim /etc/vsftpd/vuser_conf/test
+sudo vim /etc/vsftpd/vuser_conf/test
 ```
 
 > **TIps:** `test` 为虚拟用户的用户名，一个虚拟用户，一个单独的配置文件。
@@ -292,19 +297,19 @@ download_enable=YES
 创建该虚拟用户的主目录：
 
 ```shell
-mkdir -p /home/wwwroot/www.xxx.com
+sudo mkdir -p /home/wwwroot/www.xxx.com
 ```
 
 修改目录所有者：
 
 ```shell
-chown vsftpd:vsftpd /home/wwwroot/www.xxx.com
+sudo chown vsftpd:vsftpd /home/wwwroot/www.xxx.com
 ```
 
 修改目录权限：
 
 ```shell
-chmod 755 /home/wwwroot/www.xxx.com
+sudo chmod 755 /home/wwwroot/www.xxx.com
 ```
 
 ### 虚拟用户白名单
@@ -312,13 +317,13 @@ chmod 755 /home/wwwroot/www.xxx.com
 备份 vsftpd 默认的允许访问 FTP 的用户白名单文件：
 
 ```shell
-mv /etc/vsftpd/user_list /etc/vsftpd/user_list.bak
+sudo mv /etc/vsftpd/user_list /etc/vsftpd/user_list.bak
 ```
 
 重新创建白名单文件，并添加允许访问 FTP 的用户名：
 
 ```shell
-vim /etc/vsftpd/user_list
+sudo vim /etc/vsftpd/user_list
 ```
 
 > **Tips:** 一行一个用户名。
@@ -330,7 +335,7 @@ vim /etc/vsftpd/user_list
 创建允许执行 `chroot` 操作的虚拟用户白名单文件，根据需要添加用户名：
 
 ```shell
-vim /etc/vsftpd/chroot_list
+sudo vim /etc/vsftpd/chroot_list
 ```
 
 > **Tips:** 
@@ -346,13 +351,13 @@ vim /etc/vsftpd/chroot_list
 启动 vsftpd 服务：
 
 ```shell
-systemctl start vsftpd
+sudo systemctl start vsftpd
 ```
 
 设置开机启动：
 
 ```shell
-systemctl enable vsftpd
+sudo systemctl enable vsftpd
 ```
 
 ## FirewallD 配置
@@ -360,7 +365,7 @@ systemctl enable vsftpd
 查看 FirewallD 当前默认区域永久配置：
 
 ```shell
-firewall-cmd --permanent --list-all
+sudo firewall-cmd --permanent --list-all
 ```
 
 > public
@@ -379,26 +384,26 @@ firewall-cmd --permanent --list-all
 
 可见 `services` 没有添加了 `ftp` 服务，`ports` 中也没有添加 FTP 相关端口（20，21 等）。
 
-永久添加 ftp 服务：
+永久添加 ftp 服务当当前默认区域：
 
 ```shell
-firewall-cmd --permanent --add-service=ftp
+sudo firewall-cmd --permanent --add-service=ftp
 ```
 
 给 `ftp` 服务添加额外的 FTP 相关端口：
 
 ```shell
 # 主配置文件中设置的主动模式传输数据端口 20/tcp
-firewall-cmd --permanent --service=ftp --add-port=20/tcp
+sudo firewall-cmd --permanent --service=ftp --add-port=20/tcp
 
 # 主配置文件中设置的被动模式传输数据端口区域 18000-19000/tcp
-firewall-cmd --permanent --service=ftp --add-port=18000-19000/tcp
+sudo firewall-cmd --permanent --service=ftp --add-port=18000-19000/tcp
 ```
 
 查看重载 FirewallD 规则之后永久生效的服务：
 
 ```shell
-firewall-cmd --permanent --list-service
+sudo firewall-cmd --permanent --list-service
 ```
 
 >   ssh ftp
@@ -406,7 +411,7 @@ firewall-cmd --permanent --list-service
 查看重载 FirewallD 规则之后永久生效的 ftp 服务的信息：
 
 ```shell
-firewall-cmd --permanent --info-service=ftp
+sudo firewall-cmd --permanent --info-service=ftp
 ```
 
 >   ftp
@@ -419,7 +424,7 @@ firewall-cmd --permanent --info-service=ftp
 重载 FirewallD 规则：
 
 ```shell
-firewall-cmd --reload
+sudo firewall-cmd --reload
 ```
 
 > **Tips:** 阿里云主机需要在安全组规则中添加入方向的 `20/tcp, 21/tcp, 18000-19000/tcp` 端口。
@@ -431,24 +436,26 @@ firewall-cmd --reload
 创建日志文件：
 
 ```shell
-touch /var/log/vsftpd.log
+sudo touch /var/log/vsftpd.log
 ```
 
 设置文件权限：
 
 ```shell
-chown vsftp:vsftp /var/log/vsftpd.log
+sudo chown vsftp:vsftp /var/log/vsftpd.log
 ```
 
 重启 vsftpd 服务：
 
 ```shell
-systemctl restart vsftpd
+sudo systemctl restart vsftpd
 ```
 
 ## FTP 客户端
 
 推荐使用免费开源全平台支持的 FileZilla：[FileZilla 官方下载](https://filezilla-project.org) 。
+
+第一次连接的时候会提示 “未知证书”，并显示之前填写的证书信息，勾选 “在以后的会话中始终信任该证书“ 并确定即可。
 
 
 ## 参考文献

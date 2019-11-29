@@ -2,23 +2,38 @@
 
 ## 远程登陆主机
 
-使用 SSH 终端工具远程登录主机：
+使用终端工具远程登录主机：
 
 ```shell
 ssh root@<ip>
 ```
 
-> **Tips:** `<ip>` 为主机 IP 地址。
->
-> 如果有重置系统等操作导致主机公钥发生变化，需要进入 `~/.ssh/known_hosts` 删除对应 IP 的记录行。
+`<ip>` 为主机 IP 地址。
 
-## 更新系统软件
+第一次使用该 IP 地址登录会提示：
+
+> ......
+> Are you sure you want to continue connecting (yes/no)?
+
+输入 `yes` 回车即可。
+
+如果不是第一次，且有重置系统等操作导致主机公钥发生变化，须进入 `~/.ssh/known_hosts` 删除该 IP 的记录行。
+
+## 更新系统
+
+清除 Yum 缓存：
+
+```shell
+yum clean all
+```
+
+更新系统：
 
 ```shell
 yum -y update
 ```
 
-> **Tips:** 该命令会升级包含系统内核的所有包，会改变软件设置和系统设置。
+> **Tips:** 该命令会更新系统软件和系统内核，会改变软件设置和系统设置。
 
 ## 关闭 SELinux
 
@@ -56,7 +71,7 @@ reboot
 hostnamectl set-hostname <host-name>
 ```
 
-> **Tips:** `<host-name>` 为新主机名。
+`<host-name>` 为新主机名。
 
 重启主机：
 
@@ -198,7 +213,7 @@ firewall-cmd --reload
 adduser <user>
 ```
 
-> **Tips:** `<user>` 为新建用户的用户名。
+`<user>` 为新建用户的用户名。
 
 设置用户密码：
 
@@ -224,15 +239,15 @@ vim /etc/sudoers
 
 找到：
 
-> ```shell
-> ## Allow root to run any commands anywhere
-> root    ALL=(ALL)       ALL
-> ```
+```shell
+## Allow root to run any commands anywhere
+root    ALL=(ALL)       ALL
+```
 
 在下面插入：
 
 ```shell
-# 该用户在使用 sudo 命令时不需要输入新用户密码
+# 该用户在使用 sudo 命令时不需要输入该用户的密码
 <user>    ALL=(ALL)       NOPASSWD:ALL
 
 # or 该用户在使用 sudo 命令时需要输入新用户密码
@@ -245,7 +260,7 @@ vim /etc/sudoers
 chmod -v u-w /etc/sudoers
 ```
 
-> **TIps:** 如需使用管理员权限执行命令，使用 `sudo <command>` 即可。
+> **TIps:** 如需使用 root 权限执行命令，使用 `sudo <command>` 即可。
 
 ### 禁止 root 用户登录
 
@@ -261,7 +276,7 @@ vim /etc/ssh/sshd_config
 PermitRootLogin no
 ```
 
-保存并退出，重启 SSH：
+保存并退出，重启 SSH 服务：
 
 ```shell
 systemctl restart sshd
@@ -273,21 +288,19 @@ systemctl restart sshd
 ssh <user>@<ip>
 ```
 
-> **Tips:** 
->
-> 登录后如需切换至 root 用户：
->
-> ```shell
-> su - root
-> ```
->
-> 输入 root 用户密码。
->
-> 登出 root 用户：
->
-> ```shell
-> exit
-> ```
->
-> 返回到之前的用户登录状态。
+登录后如需切换至 root 用户：
+
+```shell
+su -
+```
+
+输入 root 用户密码。
+
+如需登出 root 用户：
+
+```shell
+exit
+```
+
+会返回到之前的用户登录状态。
 

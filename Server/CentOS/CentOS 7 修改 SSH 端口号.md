@@ -5,7 +5,7 @@
 打开 SSH 配置文件：
 
 ```shell
-vim /etc/ssh/sshd_config
+sudo vim /etc/ssh/sshd_config
 ```
 
 找到 `#Port 22` ，取消注释，修改端口号：
@@ -19,7 +19,7 @@ Port <port>
 保存并退出，重启 SSH 服务：
 
 ```shell
-systemctl restart sshd
+sudo systemctl restart sshd
 ```
 
 ## 防火墙设置
@@ -27,7 +27,7 @@ systemctl restart sshd
 查看默认区域永久配置：
 
 ```shell
-firewall-cmd --permanent --list-all
+sudo firewall-cmd --permanent --list-all
 ```
 
 > public
@@ -51,31 +51,31 @@ firewall-cmd --permanent --list-all
 > 如果未启用，可手动永久添加 SSH 服务到默认区域：
 >
 > ```shell
-> firewall-cmd --permanent --add-service=ssh
+> sudo firewall-cmd --permanent --add-service=ssh
 > ```
 >
 > 如果 `ports` 中永久添加了 `22/tcp` ，则永久删除：
 >
 > ```shell
-> firewall-cmd --permanent --remove-port=22/tcp
+> sudo firewall-cmd --permanent --remove-port=22/tcp
 > ```
 
 永久添加新的端口到 SSH 服务：
 
 ```shell
-firewall-cmd --permanent --service=ssh --add-port=<port>/tcp
+sudo firewall-cmd --permanent --service=ssh --add-port=<port>/tcp
 ```
 
 从 SSH 服务永久移除默认的 22 端口：
 
 ```shell
-firewall-cmd --permanent --service=ssh --remove-port=22/tcp
+sudo firewall-cmd --permanent --service=ssh --remove-port=22/tcp
 ```
 
 重载防火墙规则：
 
 ```shell
-firewall-cmd --reload
+sudo firewall-cmd --reload
 ```
 
 > **Tips:** 阿里云主机还需要在安全组规则中添加入方向的 `<port>/tcp` 端口，并删除 `22/tcp` 端口。
