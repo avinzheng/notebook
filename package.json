@@ -1,6 +1,6 @@
 {
   "name": "notebook",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "My developing notebook.",
   "main": "main.js",
   "repository": "git@github.com:avincheng/notebook.git",
@@ -10,8 +10,10 @@
   "scripts": {
     "start": "node main.js"
   },
+  "dependencies": {
+    "glob": "^7.1.6"
+  },
   "devDependencies": {
-    "glob": "^7.1.6",
     "prettier": "1.19.1"
   },
   "prettier": {
