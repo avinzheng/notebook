@@ -160,7 +160,7 @@ function genFileTree(dirs) {
  * @returns {string}
  */
 function genReadMeContent(filesTree) {
-  const start = '# Notebook\n\n已同步到 [GitBook](https://avincheng.gitbook.io/notebook/) 。\n\n';
+  const start = '# Notebook\n\n已同步到 [GitBook](https://avincheng.gitbook.io/notebook/) 。\n';
   let toc = '';
   const end = '\n';
 
@@ -172,18 +172,29 @@ function genReadMeContent(filesTree) {
   function stringify(node) {
     switch (node.type) {
       case 'directory':
-        return '#'.repeat(node.depth + 1) + ' ' + node.name + '\n\n';
+        return `\n${'#'.repeat(node.depth + 1)} ${node.name}\n\n`;
       case 'file':
         return `* [${node.name}](${node.path})\n`;
     }
   }
 
+  /**
+   * 指定目录递归生成 TOC
+   * @param {(File|Dir)[]} arr
+   */
   (function genToc(arr) {
     arr.forEach(node => {
       toc += stringify(node);
       node.type === 'directory' && node.children.length > 0 && genToc(node.children);
     });
   })(filesTree);
+
+  /**
+   * 格式化 TOC 文本
+   */
+  (function formatToc() {
+    toc = toc.replace(/\n\n\n/g, '\n\n');
+  })();
 
   return start + toc + end;
 }

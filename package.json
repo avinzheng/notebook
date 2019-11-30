@@ -1,6 +1,6 @@
 {
   "name": "notebook",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "My developing notebook.",
   "main": "main.js",
   "repository": "git@github.com:avincheng/notebook.git",
