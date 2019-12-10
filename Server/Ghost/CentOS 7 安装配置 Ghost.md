@@ -196,6 +196,8 @@ sudo vim /etc/nginx/conf.d/blog.avincheng.com.conf
 server {
   listen 80;
   server_name blog.avincheng.com;
+  client_max_body_size 5m;
+  
   location / {
     proxy_pass http://127.0.0.1:2368;
     proxy_set_header Host $http_host;
