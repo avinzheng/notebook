@@ -1,4 +1,4 @@
-# MacOS 安装配置 Ghost
+# macOS 安装配置 Ghost
 
 ## 准备工作
 
@@ -102,3 +102,4 @@ ghost restart <name>
 
 * [Ghost CLI](https://ghost.org/docs/api/v2/ghost-cli/)
 * [How to install Ghost locally](https://ghost.org/docs/install/local/)
+

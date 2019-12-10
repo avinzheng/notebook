@@ -59,3 +59,4 @@
 * [AdGuard](https://adguard.com/) - 广告拦截
 * [Parallels Desktop](https://www.parallels.com/products/desktop/) - 虚拟机
 * [CleanMyMac X](https://cleanmymac.com) - 软件垃圾清理
+

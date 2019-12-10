@@ -36,10 +36,10 @@ CSS:
 .clearfix:after {
   content: "";
   display: block;
-	height: 0;
+  height: 0;
   line-height: 0;
-	visibility: hidden;
-	clear: both;
+  visibility: hidden;
+  clear: both;
 }
 .fl {
   float: left;
@@ -47,7 +47,7 @@ CSS:
 
 .main {
   padding: 0 150px 0 200px; /* 左右内边距值分别为左右栏宽度 */
-	min-width: 350px; /* 注意容错，至少为左右栏宽度之和 */
+  min-width: 350px; /* 注意容错，至少为左右栏宽度之和 */
   background: red;
 }
 .center {
@@ -114,10 +114,10 @@ CSS:
 .clearfix:after {
   content: "";
   display: block;
-	height: 0;
+  height: 0;
   line-height: 0;
-	visibility: hidden;
-	clear: both;
+  visibility: hidden;
+  clear: both;
 }
 .fl {
   float: left;
@@ -158,7 +158,7 @@ CSS:
 ```css
 /* 三栏间距 20px */
 .center {
-	margin: 0 170px 0 220px;
+  margin: 0 170px 0 220px;
 }
 ```
 
@@ -185,10 +185,10 @@ CSS:
 .clearfix:after {
   content: "";
   display: block;
-	height: 0;
+  height: 0;
   line-height: 0;
-	visibility: hidden;
-	clear: both;
+  visibility: hidden;
+  clear: both;
 }
 .fl {
   float: left;
@@ -198,7 +198,7 @@ CSS:
 }
 
 .main {
-	min-width: 350px; /* 注意容错，至少为左右栏宽度之和 */
+  min-width: 350px; /* 注意容错，至少为左右栏宽度之和 */
   background: red;
 }
 .left {
@@ -250,7 +250,7 @@ CSS:
 ```css
 .main {
   display: flex;
-	min-width: 350px; /* 注意容错，至少为左右栏宽度之和 */
+  min-width: 350px; /* 注意容错，至少为左右栏宽度之和 */
   background: red;
 }
 .left {
@@ -279,10 +279,11 @@ CSS:
 ```css
 /* 三栏间距 20px */
 .center {
-	margin: 0 20px;
+  margin: 0 20px;
 }
 ```
 
 ## 参考文献
 
 * [In Search of the Holy Grail](https://alistapart.com/article/holygrail)
+
