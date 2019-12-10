@@ -4,6 +4,11 @@
 
 ## Web
 
+### CSS
+
+* [CSS 常用三栏布局](Web/CSS/CSS%20%E5%B8%B8%E7%94%A8%E4%B8%89%E6%A0%8F%E5%B8%83%E5%B1%80.md)
+* [CSS 排版技巧](Web/CSS/CSS%20%E6%8E%92%E7%89%88%E6%8A%80%E5%B7%A7.md)
+
 ### HTML
 
 * [HTML head 常用标签](Web/HTML/HTML%20head%20%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE.md)
@@ -11,17 +16,12 @@
 * [iOS Safari Web App 配置](Web/HTML/iOS%20Safari%20Web%20App%20%E9%85%8D%E7%BD%AE.md)
 * [常用网页语义结构](Web/HTML/%E5%B8%B8%E7%94%A8%E7%BD%91%E9%A1%B5%E8%AF%AD%E4%B9%89%E7%BB%93%E6%9E%84.md)
 
-### CSS
-
-* [CSS 排版技巧](Web/CSS/CSS%20%E6%8E%92%E7%89%88%E6%8A%80%E5%B7%A7.md)
-* [CSS 常用三栏布局](Web/CSS/CSS%20%E5%B8%B8%E7%94%A8%E4%B8%89%E6%A0%8F%E5%B8%83%E5%B1%80.md)
-
 ## Server
 
 ### Ghost
 
 * [CentOS 7 安装配置 Ghost](Server/Ghost/CentOS%207%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20Ghost.md)
-* [MacOS 安装配置 Ghost](Server/Ghost/MacOS%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20Ghost.md)
+* [macOS 安装配置 Ghost](Server/Ghost/macOS%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20Ghost.md)
 
 ### CentOS
 
