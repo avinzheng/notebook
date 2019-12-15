@@ -174,7 +174,23 @@ brew unlink <formula>
 
 > **Tips:** Homebrew 符号链接存放目录为  `/usr/local/bin` ，软件包实际安装目录为 `/usr/local/Cellar` 。
 
+## 异常处理
+
+### 权限不足
+
+错误信息为：
+
+> Error: Permission denied @ apply2files - /usr/local/share/Library/Caches......
+
+异常可能发生在系统升级之后，解决方案：
+
+```shell
+sudo chown -R $(whoami):admin /usr/local/*
+sudo chmod -R g+rwx /usr/local/*
+```
+
 ## 参考文献
 
 - [Homebrew Documentation](https://docs.brew.sh/Manpage)
+- [Error Permission denied when running brew cleanup](https://discussions.apple.com/thread/250801501)
 
