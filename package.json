@@ -8,17 +8,21 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "gen": "node main.js"
+    "gen:readme": "node main.js"
   },
   "dependencies": {
     "glob": "^7.1.6"
   },
   "devDependencies": {
-    "prettier": "1.19.1"
+    "husky": "^3.1.0",
+    "prettier": "^1.19.1"
   },
   "prettier": {
-    "printWidth": 100,
-    "singleQuote": true,
-    "endOfLine": "lf"
+    "singleQuote": true
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run gen:readme"
+    }
   }
 }
