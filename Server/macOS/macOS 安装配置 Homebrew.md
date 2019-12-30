@@ -2,7 +2,7 @@
 
 ## 安装 Homebrew
 
-使用 ruby 执行 Homebrew 安装脚本：
+使用 ruby 执行 Homebrew 安装脚本（可能需要网络代理）：
 
 ```shell
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -19,19 +19,11 @@ echo 'export HOMEBREW_NO_AUTO_UPDATE=true' >> ~/.zshrc
 source ~/.zshrc
 ```
 
-> **Tips:**
->
-> 若使用 bash（macOS 默认 shell） 则执行以下命令：
->
-> ```shell
-> echo 'export HOMEBREW_NO_AUTO_UPDATE=true' >> ~/.bash_profile
-> source ~/.bash_profile
-> ```
->
+> **Tips:** 若使用 bash（macOS 默认 shell），将 `~/.zhsrc` 换成 `~/.bash_profile` 。
 
-### 加速更新
+### 加速 Homebrew 更新
 
-可修改 Homebrew 远程仓库地址为清华镜像地址，以加速更新：
+可修改 Homebrew 远程仓库地址为中科大开源镜像地址，以加速更新：
 
 ```shell
 # 替换 brew.git
@@ -41,6 +33,12 @@ git remote set-url origin https://mirrors.ustc.edu.cn/brew.git
 # 替换 homebrew-core.git
 cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core"
 git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git
+
+# 替换 homebrew-cask.git
+# 需执行过 `brew cask` 命令安装 brew-cask 后才会有
+# brew-cask 用于安装 macOS 二进制文件（如带 GUI 的大型应用程序）
+cd "$(brew --repo)/Library/Taps/homebrew/homebrew-cask"
+git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-cask.git
 ```
 
 如需恢复至 Github 远程仓库：
@@ -53,6 +51,19 @@ git remote set-url origin https://github.com/Homebrew/brew.git
 # 恢复 homebrew-core.git
 cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core"
 git remote set-url origin https://github.com/Homebrew/homebrew-core.git
+
+# 恢复 homebrew-cask.git
+cd "$(brew --repo)/Library/Taps/homebrew/homebrew-cask"
+git remote set-url origin https://github.com/Homebrew/homebrew-cask.git
+```
+
+### 加速软件包下载
+
+使用中科大开源镜像加速软件包下载：
+
+```shell
+echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' >> ~/.zshrc
+source ~/.zshrc
 ```
 
 ## Homebrew 常用命令
@@ -109,10 +120,10 @@ brew search <text|/text/>
 
 ```shell
 # 查看当前已安装的软件包
-brew ls
+brew ls|list
 
 # 查看当前已安装的软件包版本
-brew ls --versions
+brew ls|list --versions
 ```
 
 查看软件包依赖：
@@ -160,10 +171,10 @@ brew cleanup
 
 ```shell
 # 手动建立符号链接
-brew ln <formula>
+brew ln|link <formula>
 
 # 手动覆盖建立符号链接
-brew ln --overwrite <formula>
+brew ln|link --overwrite <formula>
 ```
 
 删除符号链接：
@@ -192,5 +203,6 @@ sudo chmod -R g+rwx /usr/local/*
 ## 参考文献
 
 - [Homebrew Documentation](https://docs.brew.sh/Manpage)
+- [Homebrew 源使用帮助](http://mirrors.ustc.edu.cn/help/brew.git.html)
 - [Error Permission denied when running brew cleanup](https://discussions.apple.com/thread/250801501)
 

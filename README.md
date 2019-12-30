@@ -4,6 +4,10 @@
 
 ## Web
 
+### Angular
+
+* [Angular 项目移除自动化测试](Web/Angular/Angular%20%E9%A1%B9%E7%9B%AE%E7%A7%BB%E9%99%A4%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95.md)
+
 ### CSS
 
 * [CSS 常用三栏布局](Web/CSS/CSS%20%E5%B8%B8%E7%94%A8%E4%B8%89%E6%A0%8F%E5%B8%83%E5%B1%80.md)
@@ -16,12 +20,13 @@
 * [iOS Safari Web App 配置](Web/HTML/iOS%20Safari%20Web%20App%20%E9%85%8D%E7%BD%AE.md)
 * [常用网页语义结构](Web/HTML/%E5%B8%B8%E7%94%A8%E7%BD%91%E9%A1%B5%E8%AF%AD%E4%B9%89%E7%BB%93%E6%9E%84.md)
 
+## Mobile
+
+### Ionic
+
+* [macOS 安装配置 Ionic](Mobile/Ionic/macOS%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20Ionic.md)
+
 ## Server
-
-### Ghost
-
-* [CentOS 7 安装配置 Ghost](Server/Ghost/CentOS%207%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20Ghost.md)
-* [macOS 安装配置 Ghost](Server/Ghost/macOS%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20Ghost.md)
 
 ### CentOS
 
@@ -30,6 +35,11 @@
 * [CentOS 7 修改 SSH 端口号](Server/CentOS/CentOS%207%20%E4%BF%AE%E6%94%B9%20SSH%20%E7%AB%AF%E5%8F%A3%E5%8F%B7.md)
 * [CentOS 7 安装配置 SS](Server/CentOS/CentOS%207%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20SS.md)
 * [CentOS 7 安装配置 vsftpd](Server/CentOS/CentOS%207%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20vsftpd.md)
+
+### Ghost
+
+* [CentOS 7 安装配置 Ghost](Server/Ghost/CentOS%207%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20Ghost.md)
+* [macOS 安装配置 Ghost](Server/Ghost/macOS%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20Ghost.md)
 
 ### Node.js
 
@@ -74,4 +84,5 @@
 * [macOS 安装配置 Git](DevOps/Git/macOS%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20Git.md)
 * [使用 GPG Keys 签名 Git 提交](DevOps/Git/%E4%BD%BF%E7%94%A8%20GPG%20Keys%20%E7%AD%BE%E5%90%8D%20Git%20%E6%8F%90%E4%BA%A4.md)
 * [使用 SSH 连接 Git](DevOps/Git/%E4%BD%BF%E7%94%A8%20SSH%20%E8%BF%9E%E6%8E%A5%20Git.md)
+* [常见 Git 操作](DevOps/Git/%E5%B8%B8%E8%A7%81%20Git%20%E6%93%8D%E4%BD%9C.md)
 

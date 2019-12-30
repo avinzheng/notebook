@@ -2,10 +2,10 @@
 
 ## 安装 Yarn
 
-### 使用 Homebrew 安装
+使用 Homebrew 安装 Yarn：
 
 ```shell
-brew install --ignore-dependencies yarn
+brew install yarn --ignore-dependencies
 ```
 
 查看安装的 Yarn 版本：
@@ -15,8 +15,6 @@ yarn -v
 ```
 
 > 1.17.3
-
-### 配置环境变量
 
 查看 Yarn 全局 bin 路径：
 
@@ -44,78 +42,6 @@ source ~/.zshrc
 ```
 
 > **Tips:** 如果使用的是 macOS 默认的 bash，则配置文件为 `~/.bash_profile` 。
-
-## 切换 Yarn 源
-
-### 手动切换 Yarn 源
-
-常见 Node.js 软件源：
-
-```shell
-# npm（推荐海外使用）
-https://registry.npmjs.org/
-
-# taobao（推荐国内使用）
-https://registry.npm.taobao.org/
-```
-
-手动切换 Yarn 源，如切换至 taobao 镜像源 ：
-
-```shell
-yarn config set registry https://registry.npm.taobao.org/
-```
-
-查看设置之后的 Yarn 源配置：
-
-```shell
-yarn config get registry
-```
-
-> https://registry.npm.taobao.org/
-
-### 使用 yrm 切换 Yarn 源
-
-全局安装 yrm ：
-
-```shell
-yarn global add yrm
-```
-
-列出 yrm 支持的源：
-
-```shell
-yrm ls
-```
-
-> - npm ---- https://registry.npmjs.org/
->   cnpm --- http://r.cnpmjs.org/
->   taobao - https://registry.npm.taobao.org/
->   nj ----- https://registry.nodejitsu.com/
->   rednpm - http://registry.mirror.cqupt.edu.cn/
->   npmMirror  https://skimdb.npmjs.com/registry/
->   edunpm - http://registry.enpmjs.org/
->   yarn --- https://registry.yarnpkg.com
-
-测试各个源的连接速度：
-
-```shell
-yrm test
-```
-
-> - npm ---- 494ms
->   cnpm --- 311ms
->   taobao - 110ms
->   nj ----- Fetch Error
->   rednpm - Fetch Error
->   npmMirror  1583ms
->   edunpm - Fetch Error
->   yarn --- Fetch Error
-
-切换至速度最快的的源，如 taobao：
-
-```shel
-yrm use taobao
-```
 
 ## 卸载 Yarn
 
@@ -152,6 +78,16 @@ brew update
 
 ```shell
 brew upgrade yarn
+```
+
+## 常见问题
+
+### 找不到命令
+
+macOS 上使用 Homebrew 安装的 Yarn，可能会偶然出现找不到命令的情况（之前正常），此时重新建立一次 Yarn 命令的符号链接即可：
+
+```shell
+brew unlink yarn && brew link yarn
 ```
 
 ## 参考文献
