@@ -9,17 +9,17 @@
 * [Angular 项目移除自动化测试](Web/Angular/Angular%20%E9%A1%B9%E7%9B%AE%E7%A7%BB%E9%99%A4%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95.md)
 * [搭建 Angular 项目环境](Web/Angular/%E6%90%AD%E5%BB%BA%20Angular%20%E9%A1%B9%E7%9B%AE%E7%8E%AF%E5%A2%83.md)
 
+### CSS
+
+* [CSS 常用三栏布局](Web/CSS/CSS%20%E5%B8%B8%E7%94%A8%E4%B8%89%E6%A0%8F%E5%B8%83%E5%B1%80.md)
+* [CSS 排版技巧](Web/CSS/CSS%20%E6%8E%92%E7%89%88%E6%8A%80%E5%B7%A7.md)
+
 ### HTML
 
 * [HTML head 常用标签](Web/HTML/HTML%20head%20%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE.md)
 * [HTML 常用 DTD 声明](Web/HTML/HTML%20%E5%B8%B8%E7%94%A8%20DTD%20%E5%A3%B0%E6%98%8E.md)
 * [iOS Safari Web App 配置](Web/HTML/iOS%20Safari%20Web%20App%20%E9%85%8D%E7%BD%AE.md)
 * [常用网页语义结构](Web/HTML/%E5%B8%B8%E7%94%A8%E7%BD%91%E9%A1%B5%E8%AF%AD%E4%B9%89%E7%BB%93%E6%9E%84.md)
-
-### CSS
-
-* [CSS 常用三栏布局](Web/CSS/CSS%20%E5%B8%B8%E7%94%A8%E4%B8%89%E6%A0%8F%E5%B8%83%E5%B1%80.md)
-* [CSS 排版技巧](Web/CSS/CSS%20%E6%8E%92%E7%89%88%E6%8A%80%E5%B7%A7.md)
 
 ## Mobile
 
@@ -42,10 +42,6 @@
 * [CentOS 7 安装配置 SS](Server/CentOS/CentOS%207%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20SS.md)
 * [CentOS 7 安装配置 vsftpd](Server/CentOS/CentOS%207%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20vsftpd.md)
 
-### Windows
-
-* [Awesome Windows](Server/Windows/Awesome%20Windows.md)
-
 ### Node.js
 
 * [Awesome Node.js](Server/Node.js/Awesome%20Node.js.md)
@@ -54,6 +50,10 @@
 * [Yarn 常用命令](Server/Node.js/Yarn%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.md)
 * [macOS 安装卸载升级 Node.js](Server/Node.js/macOS%20%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD%E5%8D%87%E7%BA%A7%20Node.js.md)
 * [macOS 安装卸载升级 Yarn](Server/Node.js/macOS%20%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD%E5%8D%87%E7%BA%A7%20Yarn.md)
+
+### Windows
+
+* [Awesome Windows](Server/Windows/Awesome%20Windows.md)
 
 ### macOS
 
