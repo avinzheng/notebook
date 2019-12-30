@@ -22,7 +22,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run gen:readme"
+      "pre-commit": "npm run gen:readme && git add ."
     }
   }
 }
