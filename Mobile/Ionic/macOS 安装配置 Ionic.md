@@ -187,7 +187,7 @@ xcode-select --install
 使用 Yarn 全局安装 Ionic：
 
 ```shell
-yarn global add ionic
+yarn global add ionic --registry=https://registry.npm.taobao.org
 ```
 
 检查 Ionic 版本：
@@ -203,7 +203,7 @@ ionic -v
 使用 Yarn 全局安装 Cordova：
 
 ```shell
-yarn global add cordova
+yarn global add cordova --registry=https://registry.npm.taobao.org
 ```
 
 检查 Cordova 版本：

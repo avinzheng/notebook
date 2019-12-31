@@ -1,4 +1,4 @@
-# Angular 项目移除自动化测试
+# Angular 项目移除测试内容
 
 ## 移除相关依赖
 
@@ -18,7 +18,9 @@ rm -rf karma.conf.js tsconfig.spec.json e2e src/test.ts src/**/*.spec.ts
 
 ## 修改 Angular 配置
 
-打开 Angular 配置文件 `angular.json` ，找到 `projects.<name>.schematics` 配置项，其值替换为：
+打开 Angular 配置文件 `angular.json` 。
+
+找到 `projects.<project>.schematics` 配置项，其值替换为：
 
 ```json
 {
@@ -47,4 +49,4 @@ rm -rf karma.conf.js tsconfig.spec.json e2e src/test.ts src/**/*.spec.ts
 }
 ```
 
-找到 `projects.<name>.architect` 配置项，删除下面 `test` 和 `e2e` 节点内容，其下面 `lint.options.tsConfig` 值替换成 `["tsconfig.app.json"]` 。
+找到 `projects.<project>.architect` 配置项，删除下面 `test` 和 `e2e` 节点内容，其下面 `lint.options.tsConfig` 值替换成 `["tsconfig.app.json"]` 。

@@ -6,7 +6,7 @@
 
 ### Angular
 
-* [Angular 项目移除自动化测试](Web/Angular/Angular%20%E9%A1%B9%E7%9B%AE%E7%A7%BB%E9%99%A4%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95.md)
+* [Angular 项目移除测试内容](Web/Angular/Angular%20%E9%A1%B9%E7%9B%AE%E7%A7%BB%E9%99%A4%E6%B5%8B%E8%AF%95%E5%86%85%E5%AE%B9.md)
 * [搭建 Angular 项目环境](Web/Angular/%E6%90%AD%E5%BB%BA%20Angular%20%E9%A1%B9%E7%9B%AE%E7%8E%AF%E5%A2%83.md)
 
 ### CSS
@@ -26,6 +26,7 @@
 ### Ionic
 
 * [macOS 安装配置 Ionic](Mobile/Ionic/macOS%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20Ionic.md)
+* [搭建 Ionic & Angular 项目环境](Mobile/Ionic/%E6%90%AD%E5%BB%BA%20Ionic%20&%20Angular%20%E9%A1%B9%E7%9B%AE%E7%8E%AF%E5%A2%83.md)
 
 ## Server
 
