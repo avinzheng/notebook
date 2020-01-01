@@ -134,10 +134,10 @@ ls $ANDROID_SDK_ROOT/build-tools
 
 > 29.0.2
 
-该目录下的 `zipalign` 为优化应用体积的工具，需要将其路径添加到环境变量 `PATH` 中：
+将最高版本的路径添加到环境变量 `PATH` 中：
 
 ```shell
-# zipalign
+# apksigner, zipalign
 echo 'export PATH="$PATH:$ANDROID_SDK_ROOT/build-tools/29.0.2"' >> ~/.zshrc
 
 # 重新执行配置文件

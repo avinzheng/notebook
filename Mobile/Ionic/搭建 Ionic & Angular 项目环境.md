@@ -12,24 +12,6 @@ ionic start <app> blank --cordova --type=angular --no-deps
 
 > **Tips**: 创建的应用使用 Cordova 平台，使用 Angular 框架，并自带 Git 仓库。
 
-进入应用目录，创建 npm 配置文件：
-
-```shell
-touch .npmrc
-```
-
-插入 npm 配置：
-
-```shell
-echo "registry=https://registry.npm.taobao.org" >> .npmrc
-```
-
-使用 Yarn 安装依赖：
-
-```shell
-yarn --ignore-optional
-```
-
 ### 配置 Git 仓库
 
 在 Git 仓库托管平台（Github、Gitee 等）创建空的 Git 仓库（不勾选初始化）。
@@ -73,7 +55,7 @@ ng version
 ng config --global cli.packageManager yarn
 ```
 
-### 安装依赖
+### 安装项目依赖
 
 进入项目目录，创建 npm 配置文件：
 
@@ -216,7 +198,7 @@ yarn remove tslint codelyzer
 yarn add tslint prettier codelyzer tslint-config-prettier tslint-plugin-prettier --dev --tilde --ignore-optional
 ```
 
-在项目根目录创建 TSLint 配置文件 `tslint.json` 并写入配置：
+清空项目根目录的 TSLint 配置文件 `tslint.json` ，并重新写入配置：
 
 ```json
 {
