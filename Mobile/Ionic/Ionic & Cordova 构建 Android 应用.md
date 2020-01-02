@@ -66,16 +66,6 @@ keytool -v -keystore <keystore>.keystore -alias <alias> -changealias
 
 ## Android 平台配置
 
-### 生成 Android 项目
-
-使用 Cordova 平台生成 Android 项目：
-
-```shell
-ionic cordova platform add android
-```
-
-> **Tips:** 生成的 Android 项目目录位于 `platforms/android` 。
-
 ### Cordova 项目配置
 
 打开 Cordova 配置文件 `config.xml` 。
@@ -99,6 +89,24 @@ ionic cordova platform add android
 
 * `email` 作者邮箱地址，会显示在应用商店。
 * `href` 应用官网，会显示在应用商店。
+
+### 生成 Android 项目
+
+使用 Cordova 平台生成 Android 项目：
+
+```shell
+ionic cordova platform add android
+```
+
+生成 Android 项目时，会安装插件，由于 [Cordova 强制使用 npm 安装插件](https://github.com/apache/cordova-cli/pull/292)，可能会导致依赖安装出错，需要手动重新 使用 Yarn 安装一次依赖：
+
+```shell
+# 删除 npm 包锁定文件
+rm -rf package-lock.json
+
+# 使用 Yarn 重新安装依赖
+yarn --ignore-optional
+```
 
 ## 构建 Android 应用
 

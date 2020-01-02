@@ -198,6 +198,12 @@ ionic -v
 
 > 5.4.13
 
+设置 Ionic 默认包管理工具为 Yarn：
+
+```shell
+ionic config set --global npmClient yarn
+```
+
 ### 安装 Cordova
 
 使用 Yarn 全局安装 Cordova：
@@ -244,7 +250,7 @@ ionic cordova platform add android
 ionic cordova build android --prod --debug
 ```
 
-生成的应用路径为 `platforms/android/app/build/outputs/apk/debug/app-debug.apk` ，打开之前创建的 Android 模拟器（第一次打开后关闭 WiFi），将应用拖入其中即完成安装。
+生成的应用路径为 `platforms/android/app/build/outputs/apk/debug/app-debug.apk` ，打开之前创建的 Android 模拟器，将应用拖入其中即完成安装。
 
 ### 构建 iOS 应用
 

@@ -59,17 +59,17 @@
 * [macOS 安装配置 Homebrew](Server/macOS/macOS%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20Homebrew.md)
 * [macOS 安装配置 iTerm2](Server/macOS/macOS%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20iTerm2.md)
 
-### nginx
-
-* [CentOS 7 安装配置 nginx](Server/nginx/CentOS%207%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20nginx.md)
-* [nginx 使用 SSL证书配置 HTTPS](Server/nginx/nginx%20%E4%BD%BF%E7%94%A8%20SSL%E8%AF%81%E4%B9%A6%E9%85%8D%E7%BD%AE%20HTTPS.md)
-* [nginx 代理静态页面](Server/nginx/nginx%20%E4%BB%A3%E7%90%86%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2.md)
-* [nginx 配置 301 永久重定向](Server/nginx/nginx%20%E9%85%8D%E7%BD%AE%20301%20%E6%B0%B8%E4%B9%85%E9%87%8D%E5%AE%9A%E5%90%91.md)
-* [nginx 配置 gzip 压缩](Server/nginx/nginx%20%E9%85%8D%E7%BD%AE%20gzip%20%E5%8E%8B%E7%BC%A9.md)
-
 ### Windows
 
 * [Awesome Windows](Server/Windows/Awesome%20Windows.md)
+
+### nginx
+
+* [CentOS 7 安装配置 nginx](Server/nginx/CentOS%207%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20nginx.md)
+* [nginx 代理静态页面](Server/nginx/nginx%20%E4%BB%A3%E7%90%86%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2.md)
+* [nginx 使用 SSL证书配置 HTTPS](Server/nginx/nginx%20%E4%BD%BF%E7%94%A8%20SSL%E8%AF%81%E4%B9%A6%E9%85%8D%E7%BD%AE%20HTTPS.md)
+* [nginx 配置 301 永久重定向](Server/nginx/nginx%20%E9%85%8D%E7%BD%AE%20301%20%E6%B0%B8%E4%B9%85%E9%87%8D%E5%AE%9A%E5%90%91.md)
+* [nginx 配置 gzip 压缩](Server/nginx/nginx%20%E9%85%8D%E7%BD%AE%20gzip%20%E5%8E%8B%E7%BC%A9.md)
 
 ## Network
 
@@ -77,15 +77,15 @@
 
 ## DevOps
 
-### Git
-
-* [macOS 安装配置 Git](DevOps/Git/macOS%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20Git.md)
-* [使用 SSH 连接 Git](DevOps/Git/%E4%BD%BF%E7%94%A8%20SSH%20%E8%BF%9E%E6%8E%A5%20Git.md)
-* [使用 GPG Keys 签名 Git 提交](DevOps/Git/%E4%BD%BF%E7%94%A8%20GPG%20Keys%20%E7%AD%BE%E5%90%8D%20Git%20%E6%8F%90%E4%BA%A4.md)
-* [常见 Git 操作](DevOps/Git/%E5%B8%B8%E8%A7%81%20Git%20%E6%93%8D%E4%BD%9C.md)
-
 ### Docker
 
 * [CentOS 7 安装配置 Docker CE](DevOps/Docker/CentOS%207%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20Docker%20CE.md)
 * [macOS 安装配置 Docker](DevOps/Docker/macOS%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20Docker.md)
+
+### Git
+
+* [macOS 安装配置 Git](DevOps/Git/macOS%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20Git.md)
+* [使用 GPG Keys 签名 Git 提交](DevOps/Git/%E4%BD%BF%E7%94%A8%20GPG%20Keys%20%E7%AD%BE%E5%90%8D%20Git%20%E6%8F%90%E4%BA%A4.md)
+* [使用 SSH 连接 Git](DevOps/Git/%E4%BD%BF%E7%94%A8%20SSH%20%E8%BF%9E%E6%8E%A5%20Git.md)
+* [常见 Git 操作](DevOps/Git/%E5%B8%B8%E8%A7%81%20Git%20%E6%93%8D%E4%BD%9C.md)
 
