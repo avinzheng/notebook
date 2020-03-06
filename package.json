@@ -1,13 +1,14 @@
 {
   "name": "notebook",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "My developing notebook.",
   "repository": "git@github.com:avincheng/notebook.git",
   "author": "Avin Cheng <im@avincheng.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "gen:readme": "node main.js"
+    "gen:readme": "node main.js",
+    "prettier": "prettier 'main.js'"
   },
   "dependencies": {
     "glob": "^7.1.6"
@@ -21,7 +22,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run gen:readme && git add ."
+      "pre-commit": "npm run prettier && npm run gen:readme && git add ."
     }
   }
 }

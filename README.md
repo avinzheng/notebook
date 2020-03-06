@@ -21,8 +21,8 @@
 * [HTML head 常用标签](Web/HTML/HTML%20head%20%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE.md)
 * [HTML lang 属性](Web/HTML/HTML%20lang%20%E5%B1%9E%E6%80%A7.md)
 * [HTML 常用 DTD 声明](Web/HTML/HTML%20%E5%B8%B8%E7%94%A8%20DTD%20%E5%A3%B0%E6%98%8E.md)
-* [常用网页语义结构](Web/HTML/%E5%B8%B8%E7%94%A8%E7%BD%91%E9%A1%B5%E8%AF%AD%E4%B9%89%E7%BB%93%E6%9E%84.md)
 * [iOS Safari Web App 配置](Web/HTML/iOS%20Safari%20Web%20App%20%E9%85%8D%E7%BD%AE.md)
+* [常用网页语义结构](Web/HTML/%E5%B8%B8%E7%94%A8%E7%BD%91%E9%A1%B5%E8%AF%AD%E4%B9%89%E7%BB%93%E6%9E%84.md)
 
 ## Server
 
@@ -55,16 +55,16 @@
 ### macOS
 
 * [Awesome macOS](Server/macOS/Awesome%20macOS.md)
-* [macOS 安装配置 iTerm2](Server/macOS/macOS%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20iTerm2.md)
 * [macOS 安装配置 Homebrew](Server/macOS/macOS%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20Homebrew.md)
+* [macOS 安装配置 iTerm2](Server/macOS/macOS%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20iTerm2.md)
 
 ### nginx
 
 * [CentOS 7 安装配置 nginx](Server/nginx/CentOS%207%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20nginx.md)
 * [nginx 代理静态页面](Server/nginx/nginx%20%E4%BB%A3%E7%90%86%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2.md)
 * [nginx 使用 SSL证书配置 HTTPS](Server/nginx/nginx%20%E4%BD%BF%E7%94%A8%20SSL%E8%AF%81%E4%B9%A6%E9%85%8D%E7%BD%AE%20HTTPS.md)
-* [nginx 配置 gzip 压缩](Server/nginx/nginx%20%E9%85%8D%E7%BD%AE%20gzip%20%E5%8E%8B%E7%BC%A9.md)
 * [nginx 配置 301 永久重定向](Server/nginx/nginx%20%E9%85%8D%E7%BD%AE%20301%20%E6%B0%B8%E4%B9%85%E9%87%8D%E5%AE%9A%E5%90%91.md)
+* [nginx 配置 gzip 压缩](Server/nginx/nginx%20%E9%85%8D%E7%BD%AE%20gzip%20%E5%8E%8B%E7%BC%A9.md)
 
 ## Network
 
