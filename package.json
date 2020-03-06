@@ -2,7 +2,6 @@
   "name": "notebook",
   "version": "0.3.2",
   "description": "My developing notebook.",
-  "main": "main.js",
   "repository": "git@github.com:avincheng/notebook.git",
   "author": "Avin Cheng <im@avincheng.com>",
   "license": "MIT",

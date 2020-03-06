@@ -49,6 +49,7 @@
 
 * [eZip](https://ezip.awehunt.com) - **[Free]** 解压缩
 * [Motrix](https://motrix.app) - **[Free & Open]** HTTP、FTP、BT、磁力链接下载
+* [NeatDownloadManager](http://www.neatdownloadmanager.com/index.php/en/) - **[Free]** HTTP、FTP、网页视频多线程下载
 * [GoodSync](https://www.goodsync.com) - **[Free]** 支持 WebDAV 的网盘备份和同步工具
 * [uPic](https://github.com/gee1k/uPic) - **[Free & Open]** 图床管理工具
 * [PicGo](https://github.com/Molunerfinn/PicGo) - **[Free & Open]** 全平台图床管理工具
@@ -67,4 +68,5 @@
 * [AdGuard](https://adguard.com/) - 广告拦截
 * [Parallels Desktop](https://www.parallels.com/products/desktop/) - 虚拟机
 * [CleanMyMac X](https://cleanmymac.com) - 软件垃圾清理
+* [Proxifier](https://www.proxifier.com/) - 网络代理
 

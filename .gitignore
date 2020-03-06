@@ -1,13 +1,41 @@
-# Created by .ignore support plugin (hsz.mobi)
-### macOS template
-.DS_Store
+### macOS
+*.DS_Store
+.AppleDouble
+.LSOverride
+._*
 
-### Example user template
-.idea
+### Windows
+Desktop.ini
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
 
-### VisualStudioCode template
-.vscode/*
+### IDE & Editor
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+
+### SVN
+.svn/
+
+### Node
+node_modules/
+jspm_packages/
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.yarn-integrity
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+### Build & Package
+dist/
+temp/
 
 ### User Rules
-node_modules/*
 _*

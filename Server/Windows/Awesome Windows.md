@@ -31,6 +31,7 @@
 ## File Managers
 
 * [Motrix](https://motrix.app) - **[Free]** HTTP、FTP、BT、磁力链接下载
+* [NeatDownloadManager](http://www.neatdownloadmanager.com/index.php/en/) - **[Free]** HTTP、FTP、网页视频多线程下载
 * [PicGo](https://github.com/Molunerfinn/PicGo) - **[Free]** 全平台图床管理工具
 * [FileZilla](https://filezilla-project.org/download.php?show_all=1) - **[Free]** FTP 工具
 * [Beyond Compare](http://scootersoftware.com) - 文件对比工具

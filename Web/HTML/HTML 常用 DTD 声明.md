@@ -6,13 +6,15 @@
 <!DOCTYPE html>
 ```
 
-## HTML 4.01
+HTML5 模式下，自闭合标签不需要手动闭合（不需要加反斜杠），但是兼容手动闭合写法。
 
-HTML 4.01 Frameset，该 DTD 包含所有 HTML 元素和属性，包括展示性的和弃用的元素（比如 font），且允许框架集（Framesets）。
+## HTML 4.01
 
 ```html
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
 ```
+
+HTML 4.01 Frameset，该 DTD 包含所有 HTML 元素和属性，包括展示性的和弃用的元素（比如 font），且允许框架集（Framesets）。
 
 ## 参考文献
 
