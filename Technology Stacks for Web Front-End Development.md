@@ -38,6 +38,11 @@
   * Nest.js / Egg.js
   * PM2 / Forever
 
+* Linux
+  * CentOS
+  * FirewallD
+  * nginx
+
 **Network**
 
 * HTTP
@@ -52,12 +57,9 @@
 **DevOps**
 
 * Git
-* Docker & Kubernetes
+* Docker
+* Kubernetes
 * Jenkins
-* Linux
-  * CentOS
-  * FirewallD
-  * nginx
 
 **Development Environment**
 
