@@ -1,6 +1,12 @@
-# nginx 代理静态页面
+# nginx 代理静态网页
 
-代理 HTML 文件：
+在 `/etc/nginx/conf.d` 目录中创建网页配置文件：
+
+```shell
+sudo vim /etc/nginx/conf.d/avincheng.conf
+```
+
+插入配置：
 
 ```nginx
 # avincheng.com

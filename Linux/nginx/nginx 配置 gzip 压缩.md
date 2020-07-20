@@ -2,6 +2,12 @@
 
 ## gzip 通用配置
 
+创建一个用于保存 nginx 通用配置的目录：
+
+```shell
+sudo mkdir /etc/nginx/conf
+```
+
 新建 gzip 通用配置文件：
 
 ```shell
@@ -55,14 +61,14 @@ sudo vim /etc/nginx/conf.d/avincheng.com.conf
 
 ```nginx
 server {
-    listen 80;
-    server_name avincheng.com;
-    root /home/wwwroot/avincheng.com;
-    index index.html;
-    ...
-    
-    # gzip configuration
-    include /etc/nginx/conf/gzip.conf;
+  listen 80;
+  server_name avincheng.com;
+  root /home/wwwroot/avincheng.com;
+  index index.html;
+  ...
+
+  # gzip configuration
+  include /etc/nginx/conf/gzip.conf;
 }
 ```
 

@@ -1,4 +1,4 @@
-# CentOS 7 安装卸载升级 Yarn
+# CentOS7 安装卸载升级 Yarn
 
 ## 安装 Yarn
 

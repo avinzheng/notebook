@@ -7,14 +7,10 @@
 * JavaScript
   * JavaScript Design Patterns
   * ECMAScript
-* Web API
+* Web APIs
 * Web Components
 * WebAssambly
 * JSON & XML & SVG
-* Frameworks & Libraries
-  * jQuery
-  * Angular / React / Vue
-  * Echart
 * Security & Privacy
 * Browser
 * SEO
@@ -23,7 +19,6 @@
 
 * H5
 * Mini Program
-* Ionic / MUI
 * RN / NS / Weex
 * Flutter
 * iOS & Android
@@ -31,17 +26,20 @@
 **Server**
 
 * Node.js
-* SQL / NoSQL / ORM
-* MQ & IPC
+  * npm & Yarn
 * Frameworks & Libraries
   * Express / Koa
   * Nest.js / Egg.js
   * PM2 / Forever
+* SQL / NoSQL / ORM
+* MQ & IPC
+
+**Linux**
 
 * Linux
-  * CentOS
-  * FirewallD
-  * nginx
+* CentOS
+* FirewallD
+* nginx
 
 **Network**
 
@@ -51,7 +49,7 @@
 
 **Cross-Platform**
 
-* Cordova
+* Ionic / MUI
 * Electron / NW.js
 
 **DevOps**
@@ -63,16 +61,14 @@
 
 **Development Environment**
 
+* FEED (Front End Engineering & Design)
+
+  * Shell
+  * Gulp
+  * Webpack
+  * Linting & Testing
 * macOS
 * Windows
-* Linux
-
-**FEED (Front End Engineering & Design)**
-
-* Shell
-* Gulp
-* Webpack
-* Linting & Testing
 
 **Data Structure & Algorithm**
 

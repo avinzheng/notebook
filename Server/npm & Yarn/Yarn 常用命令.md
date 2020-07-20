@@ -96,12 +96,6 @@ yarn upgrade-interactive [<packages>]
 yarn bin
 ```
 
-列出 Yarn, Node.js 和当前已安装的所有本地依赖的版本：
-
-```shell
-yarn versions
-```
-
 列出本地依赖关系：
 
 ```shell
@@ -116,6 +110,12 @@ yarn list --pattern=<keyword>
 
 ```shell
 yarn why <package>
+```
+
+查看本地过期依赖：
+
+```shell
+yarn outdated
 ```
 
 ## 全局软件包管理

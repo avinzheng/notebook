@@ -46,13 +46,29 @@ git push -u origin master:master
 git remote add origin <repository>
 ```
 
-拉取并合并 origin/master 分支到本地 master 分支：
+拉取 origin 仓库数据到本地：
 
 ```shell
-git pull origin master:master --allow-unrelated-histories
+git fetch origin
 ```
 
-自动进入 commit 编辑器，可输入提交信息，按 `:` ，输入 `q` 退出编辑。
+基于 origin/master 分支创建本地临时分支：
+
+```shell
+git branch temp origin/master
+```
+
+基于本地 temp 分支合并当前分支的变更：
+
+```shell
+git rebase temp
+```
+
+删除本地临时分支 temp：
+
+```shell
+git branch -d temp
+```
 
 将本地 master 分支推送到 origin，并建立和 origin/master 的追踪关系：
 

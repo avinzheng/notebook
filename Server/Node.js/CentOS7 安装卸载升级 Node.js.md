@@ -1,14 +1,14 @@
-# CentOS 7 安装卸载升级 Node.js
+# CentOS7 安装卸载升级 Node.js
 
 ## 安装 Node.js
 
 查看  [Node.js LTS 计划](https://nodejs.org/en/about/releases/) ，确定要安装的 Node.js 版本（推荐安装 Node.js Active LTS 版本）。
 
-使用 NodeSource 分发的 RPM 软件包安装 Node.js（如 v10.x 版本）：
+使用 NodeSource 分发的 RPM 软件包安装 Node.js（如 v12.x 版本）：
 
 ```shell
 # 添加 yum 源配置
-curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -
+curl -sL https://rpm.nodesource.com/setup_12.x | sudo bash -
 
 # 使用 yum 安装
 sudo yum -y install nodejs
@@ -23,7 +23,7 @@ sudo yum -y install gcc-c++ make
 node -v
 ```
 
-> v10.16.3
+> v12.18.1
 
 ## 卸载 Node.js
 

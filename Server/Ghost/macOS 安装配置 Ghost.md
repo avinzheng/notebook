@@ -2,7 +2,7 @@
 
 ## 准备工作
 
-* [支持的 Node.js 版本](https://ghost.org/faq/node-versions/)（推荐 node@10）
+* [支持的 Node.js 版本](https://ghost.org/faq/node-versions/)（推荐 node@12）
 * 安装 Yarn 并设置源为 taobao 镜像源
 
 ## 安装 Ghost CLI
@@ -29,23 +29,17 @@ ghost -v
 cd <path>
 ```
 
-在当前目录安装最新版 Ghost：
+在当前目录安装 Ghost：
 
 ```shell
+# 安装最新版
 ghost install local
+
+# 指定版本号安装
+ghost install <version> --local
 ```
 
 > **Tips:** 此命令下安装的 Ghost 为`development` 模式，且使用 SQLite3 数据库。
-
-> **Tips:** 如需指定版本安装：
->
-> ```shell
-> # 指定版本号安装
-> ghost install <version> --local
-> 
-> # 指定 v2.x 最高版本
-> ghost install 2.37.0 --local
-> ```
 
 等待安装完成后，检查当前安装的 Ghost 版本：
 

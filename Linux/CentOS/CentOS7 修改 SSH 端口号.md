@@ -1,4 +1,4 @@
-# CentOS 7 修改 SSH 端口号
+# CentOS7 修改 SSH 端口号
 
 ## 修改配置文件
 
@@ -78,11 +78,11 @@ sudo firewall-cmd --permanent --service=ssh --remove-port=22/tcp
 sudo firewall-cmd --reload
 ```
 
-> **Tips:** 阿里云主机还需要在安全组规则中添加入方向的 `<port>/tcp` 端口，并删除 `22/tcp` 端口。
+> **Tips:** 阿里云主机还需要在安全组规则或防火墙规则中添加入方向的 `<port>/tcp` 端口，并删除 `22/tcp` 端口。
 
 ## 登录测试
 
-打开一个新的 SSH 操作窗口，使用新端口登录：
+打开一个新的终端窗口，使用新端口登录：
 
 ```shell
 ssh <user>@<ip> -p <port>

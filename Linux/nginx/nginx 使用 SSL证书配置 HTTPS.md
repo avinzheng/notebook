@@ -42,7 +42,7 @@ sudo vim /etc/nginx/conf/ssl.intermediate.conf
 ### Supports Firefox 27, Android 4.4.2, Chrome 31, Edge, IE 11 on Windows 7, Java 8u31, OpenSSL 1.0.1, Opera 20, and Safar 9
 
 # sessions
-ssl_session_cache shared:SSL:10m;  # about 40000 sessions
+ssl_session_cache shared:SSL:10m; # about 40000 sessions
 ssl_session_timeout 10m;
 ssl_session_tickets off;
 
@@ -66,7 +66,7 @@ add_header Strict-Transport-Security 'max-age=31536000; includeSubdomains; prelo
 ### Supports Firefox 1, Android 2.3, Chrome 1, Edge 12, IE8 on Windows XP, Java 6, OpenSSL 0.9.8, Opera 5, and Safari 1
 
 # sessions
-ssl_session_cache shared:SSL:10m;  # about 40000 sessions
+ssl_session_cache shared:SSL:10m; # about 40000 sessions
 ssl_session_timeout 10m;
 ssl_session_tickets off;
 
@@ -95,41 +95,41 @@ sudo vim /etc/nginx/conf.d/avincheng.com.conf
 插入配置：
 
 ```nginx
-# redirect http to https
+# avincheng.com
 server {
-    listen 80;
-    server_name avincheng.com;
-    return 301 https://$http_host$request_uri;
+  listen 443 ssl http2;
+  server_name avincheng.com;
+  root /home/wwwroot/avincheng.com;
+  index index.html;
+
+  # ssl common configuration
+  include /etc/nginx/conf/ssl.intermediate.conf;
+
+  # ssl certs
+  ssl_certificate /etc/nginx/certs/fullchain.cer;
+  ssl_certificate_key /etc/nginx/certs/avincheng.com.key;
+
+  # OCSP stapling
+  ssl_stapling on;
+  ssl_stapling_verify on;
+  ssl_trusted_certificate /etc/nginx/certs/ca.cer;
+  resolver 127.0.0.1 valid=300s;
+  resolver_timeout 10s;
 }
 
-# https
+# redirect http to https
 server {
-    listen 443 ssl http2;
-    server_name avincheng.com;
-    root /home/wwwroot/avincheng.com;
-    index index.html;
-
-    # ssl common configuration
-    include /etc/nginx/conf/ssl.intermediate.conf;
-
-    # ssl certs
-    ssl_certificate /etc/nginx/certs/ssl.fullchain.cer;
-    ssl_certificate_key /etc/nginx/certs/ssl.key;
-
-    # OCSP stapling
-    ssl_stapling on;
-    ssl_stapling_verify on;
-    ssl_trusted_certificate /etc/nginx/certs/ssl.ca.cer;
-    resolver 127.0.0.1 valid=300s;
-    resolver_timeout 10s;
+  listen 80;
+  server_name avincheng.com;
+  return 301 https://$http_host$request_uri;
 }
 ```
 
 > **Tips:**
 >
-> `ssl_certificate` 填写证书的 “.cer / .crt / .der / .pem” 文件路径，`ssl_certificate_key` 填写证书的 “.key / .pem” 文件路径。如果证书只提供了一个 “.pem” 文件，以上两个配置项都填写这个 “.pem” 文件。
->
-> `ssl_trusted_certificate` 填写 CA 证书路径，如果没有则去掉 “OCSP stapling” 配置项。
+> * `ssl_certificate` 填写证书的 “.cer / .crt / .der / .pem” 文件路径。
+>* `ssl_certificate_key` 填写证书私钥的 “.key / .pem” 文件路径。
+> * `ssl_trusted_certificate` 填写 CA 证书路径，如果没有则去掉 “OCSP stapling” 相关配置项。
 
 强制重启 nginx：
 
@@ -139,19 +139,29 @@ sudo systemctl --force restart nginx
 
 ## FirewallD 配置
 
-查看 https 服务是否已经永久启用：
+查看 FirewallD 当前默认区域永久配置：
 
 ```shell
-sudo firewall-cmd --permanent --query-service=https
+sudo firewall-cmd --permanent --list-all
 ```
 
-查看 443/tcp 端口是否已被永久添加到默认区域：
+> public
+> target: default
+> icmp-block-inversion: no
+> interfaces:
+> sources:
+> services: http ssh
+> ports:
+> protocols:
+> masquerade: no
+> forward-ports:
+> source-ports:
+> icmp-blocks:
+> rich rules:
 
-```shell
-sudo firewall-cmd --permanent --query-port=443/tcp
-```
+可见 `services` 中没有启用 `https` 服务，`ports` 中没有添加 `443/tcp` 端口。
 
-如果都没有，则永久启用 https 服务（443/tcp）：
+永久启用 `https` 服务（443/tcp）：
 
 ```shell
 sudo firewall-cmd --permanent --add-service=https
@@ -171,7 +181,10 @@ sudo firewall-cmd --permanent --list-service
 sudo firewall-cmd --reload
 ```
 
-> **TIps:** 阿里云主机需要在安全组规则中添加入方向的 `443/tcp` 端口。
+> **TIps:**
+>
+> * 阿里云 ECS 需要在控制台的安全组策略中添加入方向的 https `443/tcp` 端口。
+> * 阿里云轻量应用服务器需要在控制台的防火墙中添加 https `443/tcp` 端口。
 
 ## SSL 安全检测
 

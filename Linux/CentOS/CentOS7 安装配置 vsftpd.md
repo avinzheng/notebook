@@ -1,4 +1,4 @@
-# CentOS 7 安装配置 vsftpd
+# CentOS7 安装配置 vsftpd
 
 ## 安装依赖
 

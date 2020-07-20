@@ -1,4 +1,4 @@
-# CentOS 7 安装配置 SS
+# CentOS7 安装配置 SS
 
 ## 安装依赖
 

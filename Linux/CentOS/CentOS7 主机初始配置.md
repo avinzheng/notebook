@@ -1,4 +1,4 @@
-# CentOS 7 主机初始设置
+# CentOS7 主机初始设置
 
 ## 远程登陆主机
 
@@ -57,10 +57,10 @@ vim /etc/selinux/config
 SELINUX=disabled
 ```
 
-保存并退出，重启主机：
+保存并退出，重新载入配置文件：
 
 ```shell
-reboot
+source /etc/selinux/config
 ```
 
 ## 修改主机名
@@ -223,18 +223,12 @@ passwd <user>
 
 输入两遍用户密码。
 
-### 赋予管理员权限
+### 赋予 sudo 命令权限
 
-赋予 `/etc/sudoers` 文件写权限：
-
-```shell
-chmod -v u+w /etc/sudoers
-```
-
-编辑文件：
+编辑 sudo 权限配置文件：
 
 ```shell
-vim /etc/sudoers
+sudo visudo
 ```
 
 找到：
@@ -250,15 +244,11 @@ root    ALL=(ALL)       ALL
 # 该用户在使用 sudo 命令时不需要输入该用户的密码
 <user>    ALL=(ALL)       NOPASSWD:ALL
 
-# or 该用户在使用 sudo 命令时需要输入新用户密码
+# or 该用户在使用 sudo 命令时需要输入该用的户密码
 <user>    ALL=(ALL)       ALL
 ```
 
-保存退出，并恢复 `/etc/sudoers` 文件权限为只读：
-
-```shell
-chmod -v u-w /etc/sudoers
-```
+保存退出。
 
 > **TIps:** 如需使用 root 权限执行命令，使用 `sudo <command>` 即可。
 
@@ -282,7 +272,7 @@ PermitRootLogin no
 systemctl restart sshd
 ```
 
-使用新用户登录主机：
+打开一个新的终端窗口，使用新用户登录主机：
 
 ```shell
 ssh <user>@<ip>
@@ -303,4 +293,14 @@ exit
 ```
 
 会返回到之前的用户登录状态。
+
+## 软件设置
+
+### 关闭 vim 自动注释
+
+CentOS6/7 自带的 vim 在粘贴代码时默认自动注释，粘贴首行为注释的代码会导致后面代码全部变成注释，可取消掉：
+
+```shell
+sudo bash -c "echo \"set paste\" >> /etc/vimrc"
+```
 

@@ -1,4 +1,4 @@
-# CentOS 7 安装配置 nginx
+# CentOS7 安装配置 nginx
 
 ## 安装 nginx
 
@@ -103,7 +103,10 @@ sudo firewall-cmd --permanent --add-service=http
 sudo firewall-cmd --reload
 ```
 
-> **Tips:** 阿里云主机需要在安全组规则中添加入方向的 `80/tcp` 端口。
+> **Tips:** 
+>
+> * 阿里云 ECS 需要在控制台的安全组策略中添加入方向的 `80/tcp` 端口。
+> * 阿里云轻量应用主机需要在控制台的防火墙中添加 `80/tcp` 端口。
 
 ## 访问测试
 
@@ -183,7 +186,7 @@ server {
 server {
     listen       80 default_server;
     server_name  _;
-    return       444;
+    return       400;
     ...
 }
 ```
@@ -194,7 +197,9 @@ server {
 sudo systemctl restart nginx
 ```
 
-此时使用 IP 访问会显示 `403 Forbidden` 。
+此时使用 IP 访问会显示 `400 Bad Request` 。
+
+> **Tips:** 在 `/etc/nginx/conf.d` 目录中创建的 `.conf` 配置文件会自动被 nginx 加载。
 
 ## 参考文献
 

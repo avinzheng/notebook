@@ -1,4 +1,4 @@
-# CentOS 7 使用 acme.sh 自动申请免费 SSL 证书
+# CentOS7 使用 acme.sh 自动申请免费 SSL 证书
 
 ## 安装 acme.sh
 
@@ -27,7 +27,7 @@ acme.sh -v
 
 证书更新后，需要以 root 用户身份强制重启 nginx。如果当前登陆用户无 sudo 命令权限，或者执行 sudo 命令需要密码，需要给当前登陆用户添加免密码执行强制重启 nginx 命令的 sudo 权限。
 
-编辑 sudo 命令配置文件：
+编辑 sudo 权限配置文件：
 
 ```shell
 sudo visudo
@@ -38,6 +38,8 @@ sudo visudo
 ```shell
 <user>    ALL=(ALL)    NOPASSWD: /usr/bin/systemctl --force restart nginx
 ```
+
+> **Tips:** `<user>` 为当前登录的系统用户名，acme.sh 将以该用户身份运行。
 
 ## 配置 acme.sh
 
@@ -80,16 +82,16 @@ acme.sh --issue --dns dns_cf -d avincheng.com -d *.avincheng.com
 在当前用户目录下创建保存证书的目录：
 
 ```shell
-mkdir -p ~/certs
+mkdir -p ~/certs/avincheng.com
 ```
 
 保存证书并强制重启 nginx：
 
 ```shell
 acme.sh --install-cert -d avincheng.com \
-        --fullchain-file ~/certs/ssl.fullchain.cer \
-        --key-file ~/certs/ssl.key \
-        --ca-file ~/certs/ssl.ca.cer \
+        --fullchain-file ~/certs/avincheng.com/fullchain.cer \
+        --key-file ~/certs/avincheng.com/avincheng.com.key \
+        --ca-file ~/certs/avincheng.com/ca.cer \
         --reloadcmd "sudo systemctl --force restart nginx"
 ```
 

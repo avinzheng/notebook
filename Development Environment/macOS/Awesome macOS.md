@@ -65,8 +65,9 @@
 * [自动切换输入法](https://apps.apple.com/cn/app/%E8%87%AA%E5%8A%A8%E5%88%87%E6%8D%A2%E8%BE%93%E5%85%A5%E6%B3%95/id1470350547?mt=12) - **[Free]** 给指定程序设置默认输入法
 * [Blackmagic Disk Speed Test](https://apps.apple.com/cn/app/blackmagic-disk-speed-test/id425264550?mt=12) - **[Free]** 磁盘测速
 * [Enpass](https://apps.apple.com/cn/app/enpass-password-manager/id732710998?mt=12) - 密码管理器
-* [AdGuard](https://adguard.com/) - 广告拦截
+* [AdGuard](https://adguard.com/) - **[Open]** 广告拦截
 * [Parallels Desktop](https://www.parallels.com/products/desktop/) - 虚拟机
 * [CleanMyMac X](https://cleanmymac.com) - 软件垃圾清理
 * [Proxifier](https://www.proxifier.com/) - 网络代理
+* [Itsycal](https://www.mowglii.com/itsycal/) - **[Free]** 菜单栏日历工具
 

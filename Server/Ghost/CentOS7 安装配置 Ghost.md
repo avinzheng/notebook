@@ -1,4 +1,4 @@
-# CentOS 7 安装配置 Ghost
+# CentOS7 安装配置 Ghost
 
 ## 准备工作
 
@@ -25,22 +25,26 @@ free
 >
 > Swap:                    0                 0                 0
 
-可见当前系统物理内存为 1GB，虚拟内存为 0，可以不设置 Swap。
+可见当前系统物理内存为 1GB，虚拟内存为 0，可以不设置。
 
-如果物理内存不足 1GB，可设置 1GB Swap 虚拟内存：
+如果物理内存不足 1GB，可设置 1GB 交换分区作为虚拟内存使用：
 
 ```shell
-# 在 /var/swap 创建 1024k 个 1k 大小的空文件
+# 创建一个 1GiB 大小空文件 /var/swap
 sudo dd if=/dev/zero of=/var/swap bs=1k count=1024k
 
-# 创建 Swap 分区
+# 设置该文件为只读
+sudo chmod 600 /var/swap
+
+# 在该文件上建立交换分区
 sudo mkswap /var/swap
 
-# 启用 Swap 分区
+# 启用交换分区
 sudo swapon /var/swap
 
-# 写入分区信息
-sudo echo '/var/swap swap swap default 0 0' >> /etc/fstab
+# 写入交换分区信息到开机分区挂载配置文件中
+# 该命令需要切换至 root 用户才能执行
+echo '/var/swap swap swap default 0 0' >> /etc/fstab
 ```
 
 再次查看系统内存信息：
@@ -97,9 +101,9 @@ yarn global bin
 
 > /usr/local/bin
 
-如果 Yarn 全局 bin 路径不是公共路径，需要设置成公共路径。
+如果 `yarn global bin` 路径不是公共路径，需要设置成公共路径。
 
-> **Tips:** Ghost 服务启动时，是以 ghost 这个用户的身份启动的，这个用户没有访问其他用户个人目录文件的权限。Yarn 全局安装的 Ghost-CLI 二进制可执行文件在 Yarn 全局 bin 路径。如果 Yarn 全局 bin 路径不是公共路径，会导致 Ghost-CLI 命令执行失败。
+> **Tips:** Ghost 服务启动时，是以 ghost 这个用户的身份启动的，这个用户没有访问其他用户个人目录文件的权限。Yarn 全局安装的 Ghost-CLI 命令在 `yarn global bin` 路径，如果该路径不是公共路径，会导致 Ghost-CLI 命令执行失败。
 
 查看当前用户的环境变量中的 `$PATH` ：
 
@@ -157,10 +161,10 @@ cd <dir>
 
 ### 使用 Ghost-CLI 安装 Ghost
 
-使用 Ghost-CLI 在当前目录安装 Ghost ，并使用 SQLite 3 数据库 ：
+使用 Ghost-CLI 在当前目录安装 Ghost ，并使用 SQLite 3 数据库，安装完不启动 ：
 
 ```shell
-ghost install --no-stack --db=sqlite3
+ghost install --no-stack --db=sqlite3 --no-start
 ```
 
 > ......
@@ -172,14 +176,14 @@ ghost install --no-stack --db=sqlite3
 > ......
 > ? Do you wish to set up Systemd? (Y/n)
 
-输入 `Y` ，自动创建 Systemd 服务 ：
+输入 `Y` 或者直接回车，自动创建 Systemd 服务 ：
 
 > .....
-> ? Do you want to start Ghost? (Y/n)
+> Ghost was installed successfully! To complete setup of your publication, visit:
+>
+> https://blog.avincheng.com/ghost/
 
-输入 `n` 暂时不启动 Ghost。
-
-> **Tips:** 安装完时成如果选择 `Y` 启动 Ghost ，会使用 `ghost start` 命令启动当面目录安装的 Ghost。在 CentOS 7 上，Ghost-CLI 相关命令在检查 Ghost 的 Systemd 服务状态时返回值为 `unknown` ，会导致命令执行失败。所以相关命令如 `ghost start/stop/restart/ls` 等均无法执行，需要使用 Systemd 服务启动或停止 Ghost。
+此时完成安装。
 
 ### 配置 NGINX
 
@@ -197,7 +201,7 @@ server {
   listen 80;
   server_name blog.avincheng.com;
   client_max_body_size 5m;
-  
+
   location / {
     proxy_pass http://127.0.0.1:2368;
     proxy_set_header Host $http_host;
@@ -246,6 +250,8 @@ http://blog.avincheng.com/ghost
 ```
 
 ## 管理 Ghost
+
+在 CentOS 7 上，Ghost-CLI 相关命令在检查 Ghost 的 Systemd 服务状态时返回值为 `unknown` ，会导致命令执行失败。所以相关命令如 `ghost start/stop/restart/ls` 等均无法执行，需要直接使用 Systemd 启动或停止 Ghost 服务。
 
 启动 Ghost：
 

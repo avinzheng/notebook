@@ -19,7 +19,17 @@ const glob = require('glob');
  */
 const config = {
   // 目录白名单
-  dirs: ['Web', 'Mobile', 'Server', 'Desktop', 'Network', 'DevOps'],
+  dirs: [
+    'Web',
+    'Mobile',
+    'Server',
+    'Linux',
+    'Cross-Platform',
+    'DevOps',
+    'Network',
+    'Development Environment',
+    'Data Structure & Algorithm'
+  ],
 
   // 文件扩展名白名单
   extnames: ['.md'],
@@ -60,7 +70,9 @@ function getFiles(dir, extname) {
  * @returns {Promise<string[]>}
  */
 function getFilesByDir(dir) {
-  const arr = Promise.all(config.extnames.map(extname => getFiles(dir, extname)));
+  const arr = Promise.all(
+    config.extnames.map(extname => getFiles(dir, extname))
+  );
   return arr.then(arr => [].concat(...arr));
 }
 
@@ -143,12 +155,18 @@ function genFileTree(dirs) {
       });
     }
 
-    addFileInDirChildren(file, children[children.length - 1].children, depth + 1);
+    addFileInDirChildren(
+      file,
+      children[children.length - 1].children,
+      depth + 1
+    );
   }
 
   return getFilesByDirs(dirs)
     .then(files => {
-      files.forEach(file => addFileInDirChildren(formatFile(file), fileTree, 1));
+      files.forEach(file =>
+        addFileInDirChildren(formatFile(file), fileTree, 1)
+      );
       return fileTree;
     })
     .catch(err => console.error(err));
@@ -160,7 +178,8 @@ function genFileTree(dirs) {
  * @returns {string}
  */
 function genReadMeContent(filesTree) {
-  const start = '# Notebook\n\n已同步到 [GitBook](https://avincheng.gitbook.io/notebook/) 。\n';
+  const start =
+    '# Notebook\n\n已同步到 [GitBook](https://avincheng.gitbook.io/notebook/) 。\n';
   let toc = '';
   const end = '\n';
 
@@ -185,7 +204,9 @@ function genReadMeContent(filesTree) {
   (function genToc(arr) {
     arr.forEach(node => {
       toc += stringify(node);
-      node.type === 'directory' && node.children.length > 0 && genToc(node.children);
+      node.type === 'directory' &&
+        node.children.length > 0 &&
+        genToc(node.children);
     });
   })(filesTree);
 

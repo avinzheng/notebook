@@ -12,4 +12,5 @@
 
 * [Leon Sans](https://github.com/cmiscm/leonsans) ：Canvas / WebGL 生成艺术动画字体。
 * [Font-Detect.js](https://github.com/zenozeng/font-detect.js) ：系统已安装字体检测。
+* [canvas-special](https://github.com/bxm0927/canvas-special) : canvas 动画实例。
 

@@ -56,6 +56,7 @@ CSS:
   background: green;
 }
 .left {
+  position: relative;
   left: -200px; /* 等于自身宽度 */
   margin-left: -100%;
   width: 200px;
