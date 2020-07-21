@@ -2,14 +2,14 @@
 
 ## 布局方案对比
 
-| 布局名称     | 兼容性 | 清除浮动 | 渲染顺序   |
-| ------------ | ------ | -------- | ---------- |
-| 圣杯布局     | IE6    | 需要     | 中间栏最先 |
-| 双飞翼布局   | IE6    | 需要     | 中间栏最先 |
-| 混合浮动布局 | IE6    | 需要     | 中间栏最后 |
-| 弹性布局     | IE11   | 不需要   | 正常顺序   |
+| 布局名称     | 兼容性 | 清除浮动 | 渲染顺序     |
+| ------------ | ------ | -------- | ------------ |
+| 圣杯布局     | IE6    | 需要     | 中间栏最先   |
+| 双飞翼布局   | IE6    | 需要     | 中间栏最先   |
+| 混合浮动布局 | IE6    | 需要     | 中间栏最后   |
+| 弹性布局     | IE11   | 不需要   | 可自定义顺序 |
 
-> **Tips:** 以上布局方案均为解决 **“中间栏宽度自适应，两边栏定宽”** 的布局问题，可推广至两栏自适应布局。
+> **Tips:** 以上布局方案均为解决 **“中间栏宽度自适应，两边栏定宽，三栏均可撑起父容器高度”** 的布局问题，可推广至两栏自适应布局。
 
 ## 布局方案明细
 
@@ -20,227 +20,8 @@ HTML:
 ```html
 <header class="header">Header</header>
 <main class="clearfix main">
-  <article class="fl center">Center</article>
-  <aside class="fl left">Left</aside>
-  <aside class="fl right">Right</aside>
-</main>
-<footer class="footer">Footer</footer>
-```
-
-CSS:
-
-```css
-.clearfix {
-  zoom: 1;
-}
-.clearfix:after {
-  content: "";
-  display: block;
-  height: 0;
-  line-height: 0;
-  visibility: hidden;
-  clear: both;
-}
-.fl {
-  float: left;
-}
-
-.main {
-  padding: 0 150px 0 200px; /* 左右内边距值分别为左右栏宽度 */
-  min-width: 350px; /* 注意容错，至少为左右栏宽度之和 */
-  background: red;
-}
-.center {
-  width: 100%;
-  min-height: 100px;
-  background: green;
-}
-.left {
-  position: relative;
-  left: -200px; /* 等于自身宽度 */
-  margin-left: -100%;
-  width: 200px;
-  min-height: 100px;
-  background: yellow;
-}
-.right {
-  margin-right: -150px; /* 等于自身宽度 */
-  width: 150px;
-  min-height: 100px;
-  background: blue;
-}
-.header,
-.footer {
-  background: grey;
-}
-```
-
-调整三栏间距：
-
-```css
-/* 三栏间距 20px */
-.main {
-  padding: 0 170px 0 220px;
-}
-.left {
-  left: -220px;
-}
-.right {
-  right: -20px;
-}
-```
-
-### 双飞翼布局
-
-HTML:
-
-```html
-<header class="header">Header</header>
-<main class="clearfix main">
-  <article class="center-wrap">
-    <div class="fl center">Center</div>
-  </article>
-  <aside class="fl left">Left</aside>
-  <aside class="fl right">Right</aside>
-</main>
-<footer class="footer">Footer</footer>
-```
-
-CSS:
-
-```css
-.clearfix {
-  zoom: 1;
-}
-.clearfix:after {
-  content: "";
-  display: block;
-  height: 0;
-  line-height: 0;
-  visibility: hidden;
-  clear: both;
-}
-.fl {
-  float: left;
-}
-
-.main {
-  background: red;
-}
-.center-wrap {
-  width: 100%;
-  min-width: 350px; /* 注意容错，至少为左右栏宽度之和 */
-}
-.center {
-  margin: 0 150px 0 200px; /* 左右外边距等于左右栏宽度 */
-  min-height: 100px;
-  background: green;
-}
-.left {
-  margin-left: -100%;
-  width: 200px;
-  min-height: 100px;
-  background: yellow;
-}
-.right {
-  margin-left: -150px; /* 等于自身宽度 */
-  width: 150px;
-  min-height: 100px;
-  background: blue;
-}
-.header, 
-.footer {
-  background: grey;
-}
-```
-
-调整三栏间距：
-
-```css
-/* 三栏间距 20px */
-.center {
-  margin: 0 170px 0 220px;
-}
-```
-
-### 混合浮动布局
-
-HTML:
-
-```html
-<header class="header">Header</header>
-<main class="clearfix main">
-  <aside class="fl left">Left</aside>
-  <aside class="fr right">Right</aside>
-  <article class="center">Center</article>
-</main>
-<footer class="footer">Footer</footer>
-```
-
-CSS:
-
-```css
-.clearfix {
-  zoom: 1;
-}
-.clearfix:after {
-  content: "";
-  display: block;
-  height: 0;
-  line-height: 0;
-  visibility: hidden;
-  clear: both;
-}
-.fl {
-  float: left;
-}
-.fr {
-  float: right;
-}
-
-.main {
-  min-width: 350px; /* 注意容错，至少为左右栏宽度之和 */
-  background: red;
-}
-.left {
-  width: 200px;
-  min-height: 100px;
-  background: yellow;
-}
-.right {
-  width: 150px;
-  min-height: 100px;
-  background: blue;
-}
-.center {
-  margin: 0 150px 0 200px; /* 左右外边距等于左右栏宽度 */
-  min-height: 100px;
-  background: green;
-}
-.header, 
-.footer {
-  background: grey;
-}
-```
-
-调整三栏间距：
-
-```css
-/* 三栏间距 20px */
-.center {
-  margin: 0 170px 0 220px;
-}
-```
-
-### 弹性布局
-
-HTML:
-
-```html
-<header class="header">Header</header>
-<main class="main">
+  <article class="middle">Middle</article>
   <aside class="left">Left</aside>
-  <article class="center">Center</article>
   <aside class="right">Right</aside>
 </main>
 <footer class="footer">Footer</footer>
@@ -249,29 +30,60 @@ HTML:
 CSS:
 
 ```css
-.main {
-  display: flex;
-  min-width: 350px; /* 注意容错，至少为左右栏宽度之和 */
-  background: red;
+body {
+  margin: 0;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+  clear: both;
+}
+.header,
+.main,
+.footer {
+  background-color: grey;
 }
 .left {
-  width: 200px;
   min-height: 100px;
-  background: yellow;
+  background-color: yellow;
+  opacity: .6;
+}
+.middle {
+  min-height: 100px;
+  background-color: green;
+  opacity: .6;
 }
 .right {
+  min-height: 100px;
+  background-color: blue;
+  opacity: .6;
+}
+
+/**
+ * Layout
+ */
+.main {
+  padding-right: 150px; /* 等于右栏宽度 */
+  padding-left: 200px; /* 等于左栏宽度 */
+}
+.middle {
+  float: left;
+  width: 100%;
+}
+.left {
+  float: left;
+  position: relative;
+  left: -200px; /* 等于自身宽度 */
+  margin-left: -100%;
+  width: 200px;
+}
+.right {
+  float: left;
+  margin-right: -150px; /* 等于自身宽度 */
   width: 150px;
-  min-height: 100px;
-  background: blue;
-}
-.center {
-  flex: 1;
-  min-height: 100px;
-  background: green;
-}
-.header, 
-.footer {
-  background: grey;
 }
 ```
 
@@ -279,12 +91,261 @@ CSS:
 
 ```css
 /* 三栏间距 20px */
-.center {
-  margin: 0 20px;
+.main {
+  padding-right: 170px; /* 等于右栏宽度加间距 */
+  padding-left: 220px; /* 等于左栏宽度加间距 */
+}
+.left {
+  left: -220px; /* 等于自身宽度加间距 */
+}
+.right {
+  position: relative;
+  right: -20px; /* 间距 */
 }
 ```
+
+> **Tips:** 此布局中间栏宽度不得小于左栏宽度。
+
+CodePen：[圣杯布局](https://codepen.io/avincheng/pen/rNxodqo)
+
+### 双飞翼布局
+
+HTML:
+
+```html
+<header class="header">Header</header>
+<main class="clearfix main">
+  <article class="middle-wrapper">
+    <div class="middle">Middle</div>
+  </article>
+  <aside class="left">Left</aside>
+  <aside class="right">Right</aside>
+</main>
+<footer class="footer">Footer</footer>
+```
+
+CSS:
+
+```css
+body {
+  margin: 0;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+  clear: both;
+}
+.header,
+.main,
+.footer {
+  background-color: grey;
+}
+.left {
+  min-height: 100px;
+  background-color: yellow;
+  opacity: .6;
+}
+.middle {
+  min-height: 100px;
+  background-color: green;
+  opacity: .6;
+}
+.right {
+  min-height: 100px;
+  background-color: blue;
+  opacity: .6;
+}
+
+/**
+ * Layout
+ */
+.middle-wrapper {
+  float: left;
+  width: 100%;
+}
+.middle-wrapper > .middle {
+  margin-right: 150px; /* 等于右栏宽度 */
+  margin-left: 200px; /* 等于左栏宽度 */
+}
+.left {
+  float: left;
+  margin-left: -100%;
+  width: 200px;
+}
+.right {
+  float: left;
+  margin-left: -150px; /* 等于自身宽度 */
+  width: 150px;
+}
+```
+
+调整三栏间距：
+
+```css
+/* 三栏间距 20px */
+.middle-wrapper > .middle {
+  margin: 0 170px 0 220px;
+}
+```
+
+CodePen：[双飞翼布局](https://codepen.io/avincheng/pen/JjGwaMK)
+
+### 混合浮动布局
+
+HTML:
+
+```html
+<header class="header">Header</header>
+<main class="clearfix main">
+  <aside class="left">Left</aside>
+  <aside class="right">Right</aside>
+  <article class="middle">Middle</article>
+</main>
+<footer class="footer">Footer</footer>
+```
+
+CSS:
+
+```css
+body {
+  margin: 0;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+  clear: both;
+}
+.header,
+.main,
+.footer {
+  background-color: grey;
+}
+.left {
+  min-height: 100px;
+  background-color: yellow;
+  opacity: .6;
+}
+.middle {
+  min-height: 100px;
+  background-color: green;
+  opacity: .6;
+}
+.right {
+  min-height: 100px;
+  background-color: blue;
+  opacity: .6;
+}
+
+/**
+ * Layout
+ */
+.left {
+  float: left;
+  width: 200px;
+}
+.right {
+  float: right;
+  width: 150px;
+}
+.middle {
+  margin-right: 150px; /* 等于右栏宽度 */
+  margin-left: 200px; /* 等于左栏宽度 */
+}
+```
+
+调整三栏间距：
+
+```css
+/* 三栏间距 20px */
+.middle {
+  margin-right: 170px; /* 等于右栏宽度加间距 */
+  margin-left: 220px; /* 等于左栏宽度加间距 */
+}
+```
+
+CodePen：[混合浮动布局](https://codepen.io/avincheng/pen/YzwdOme)
+
+### 弹性布局
+
+HTML:
+
+```html
+<header class="header">Header</header>
+<main class="main">
+  <article class="middle">Middle</article>
+  <aside class="left">Left</aside>
+  <aside class="right">Right</aside>
+</main>
+<footer class="footer">Footer</footer>
+```
+
+CSS:
+
+```css
+body {
+  margin: 0;
+}
+.header,
+.main,
+.footer {
+  background-color: grey;
+}
+.left {
+  min-height: 100px;
+  background-color: yellow;
+  opacity: .6;
+}
+.middle {
+  min-height: 100px;
+  background-color: green;
+  opacity: .6;
+}
+.right {
+  min-height: 100px;
+  background-color: blue;
+  opacity: .6;
+}
+
+/**
+ * Layout
+ */
+.main {
+  display: flex;
+}
+.middle {
+  order: 2;
+  flex: 1;
+}
+.left {
+  order: 1;
+  width: 200px;
+}
+.right {
+  order: 3;
+  width: 150px;
+}
+```
+
+调整三栏间距：
+
+```css
+/* 三栏间距 20px */
+.middle {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+```
+
+CodePen：[弹性布局](https://codepen.io/avincheng/pen/mdVazQY)
 
 ## 参考文献
 
 * [In Search of the Holy Grail](https://alistapart.com/article/holygrail)
+* [使用 CSS 弹性盒子](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes)
 
