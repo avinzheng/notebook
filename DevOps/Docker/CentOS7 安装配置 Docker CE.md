@@ -1,4 +1,4 @@
-# CentOS 7 安装配置 Docker CE
+# CentOS7 安装配置 Docker CE
 
 ## 安装 Docker CE
 

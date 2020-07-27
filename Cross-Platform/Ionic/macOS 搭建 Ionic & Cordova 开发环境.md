@@ -1,4 +1,4 @@
-# macOS 安装配置 Ionic
+# macOS 搭建 Ionic & Cordova 开发环境
 
 ## 准备工作
 

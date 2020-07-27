@@ -1,4 +1,4 @@
-# 搭建 Ionic & Angular 项目环境
+# 创建 Ionic & Angular 项目
 
 ## 创建 Ionic 应用
 
@@ -167,7 +167,7 @@ rm -rf karma.conf.js tsconfig.spec.json e2e src/test.ts src/**/*.spec.ts
 
 在项目根目录创建 EditorConfig 配置文件 `.editorconfig` 并写入配置：
 
-```
+```ini
 # Editor configuration, see https://editorconfig.org
 root = true
 

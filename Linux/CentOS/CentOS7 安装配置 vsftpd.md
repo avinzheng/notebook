@@ -99,7 +99,7 @@ sudo vim /etc/vsftpd/vsftpd.conf
 
 插入配置信息：
 
-```shell
+```ini
 # standalone mode
 listen=YES
 listen_port=21
@@ -199,7 +199,7 @@ sudo vim /etc/vsftpd/vuser
 
 在文件中添加虚拟用户名和密码：
 
-```shell
+```ini
 test
 test123
 ```
@@ -250,7 +250,7 @@ sudo vim /etc/pam.d/vsftpd
 
 插入配置（64 位系统）：
 
-```shell
+```ini
 auth required /lib64/security/pam_userdb.so db=/etc/vsftpd/vuser
 account required /lib64/security/pam_userdb.so db=/etc/vsftpd/vuser
 ```
@@ -259,7 +259,7 @@ account required /lib64/security/pam_userdb.so db=/etc/vsftpd/vuser
 >
 > 如果是 32 位系统：
 >
-> ```shell
+> ```ini
 > auth required pam_userdb.so db=/etc/vsftpd/vuser
 > account required pam_userdb.so db=/etc/vsftpd/vuser
 > ```
@@ -284,7 +284,7 @@ sudo vim /etc/vsftpd/vuser_conf/test
 
 写入该用户的独立配置：
 
-```shell
+```ini
 local_root=/home/wwwroot/www.xxx.com
 write_enable=YES
 download_enable=YES

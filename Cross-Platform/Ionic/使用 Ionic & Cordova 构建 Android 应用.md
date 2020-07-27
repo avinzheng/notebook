@@ -1,4 +1,4 @@
-# Ionic & Cordova 构建 Android 应用
+# 使用 Ionic & Cordova 构建 Android 应用
 
 ## 密钥库和密钥
 
