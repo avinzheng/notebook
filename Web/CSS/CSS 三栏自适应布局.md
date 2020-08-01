@@ -1,4 +1,4 @@
-# CSS 常用三栏布局
+# CSS 三栏自适应布局
 
 ## 布局方案对比
 
@@ -106,7 +106,7 @@ body {
 
 > **Tips:** 此布局中间栏宽度不得小于左栏宽度。
 
-CodePen：[圣杯布局](https://codepen.io/avincheng/pen/rNxodqo)
+CodePen：[CSS 圣杯布局](https://codepen.io/avincheng/pen/rNxodqo)
 
 ### 双飞翼布局
 
@@ -191,7 +191,7 @@ body {
 }
 ```
 
-CodePen：[双飞翼布局](https://codepen.io/avincheng/pen/JjGwaMK)
+CodePen：[CSS 双飞翼布局](https://codepen.io/avincheng/pen/JjGwaMK)
 
 ### 混合浮动布局
 
@@ -269,7 +269,7 @@ body {
 }
 ```
 
-CodePen：[混合浮动布局](https://codepen.io/avincheng/pen/YzwdOme)
+CodePen：[CSS 混合浮动布局](https://codepen.io/avincheng/pen/YzwdOme)
 
 ### 弹性布局
 
@@ -342,7 +342,7 @@ body {
 }
 ```
 
-CodePen：[弹性布局](https://codepen.io/avincheng/pen/mdVazQY)
+CodePen：[CSS 弹性布局](https://codepen.io/avincheng/pen/mdVazQY)
 
 ## 参考文献
 
