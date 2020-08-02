@@ -7,8 +7,7 @@
 ### Angular
 
 * [Awesome Angular](Web/Angular/Awesome%20Angular.md)
-* [搭建 Angular 项目环境](Web/Angular/%E6%90%AD%E5%BB%BA%20Angular%20%E9%A1%B9%E7%9B%AE%E7%8E%AF%E5%A2%83.md)
-* [移除 Angular 项目测试内容](Web/Angular/%E7%A7%BB%E9%99%A4%20Angular%20%E9%A1%B9%E7%9B%AE%E6%B5%8B%E8%AF%95%E5%86%85%E5%AE%B9.md)
+* [创建 Angular 项目](Web/Angular/%E5%88%9B%E5%BB%BA%20Angular%20%E9%A1%B9%E7%9B%AE.md)
 
 ### CSS
 
@@ -34,16 +33,16 @@
 
 ## Server
 
-### Ghost
-
-* [macOS 安装配置 Ghost](Server/Ghost/macOS%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20Ghost.md)
-* [CentOS7 安装配置 Ghost](Server/Ghost/CentOS7%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20Ghost.md)
-
 ### Node.js
 
 * [Awesome Node.js](Server/Node.js/Awesome%20Node.js.md)
-* [macOS 安装卸载升级 Node.js](Server/Node.js/macOS%20%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD%E5%8D%87%E7%BA%A7%20Node.js.md)
 * [CentOS7 安装卸载升级 Node.js](Server/Node.js/CentOS7%20%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD%E5%8D%87%E7%BA%A7%20Node.js.md)
+* [macOS 安装卸载升级 Node.js](Server/Node.js/macOS%20%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD%E5%8D%87%E7%BA%A7%20Node.js.md)
+
+### Ghost
+
+* [CentOS7 安装配置 Ghost](Server/Ghost/CentOS7%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20Ghost.md)
+* [macOS 安装配置 Ghost](Server/Ghost/macOS%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%20Ghost.md)
 
 ### npm & Yarn
 
