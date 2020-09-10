@@ -63,10 +63,10 @@ ng config --global cli.packageManager yarn
 创建一个 Angular 应用，并跳过依赖安装：
 
 ```shell
-ng new <name> --routing --style=scss --skipInstall --strict
+ng new <name> --routing=false --style=scss --skipInstall --strict
 ```
 
-> **Tips:** 创建的应用将包含路由模块，使用 SCSS ，跳过依赖安装，启用 TypeScript 严格模式，自带 Git 仓库和初始提交。
+> **Tips:** 创建的应用将不包含路由模块，使用 SCSS ，跳过依赖安装，启用 TypeScript 严格模式，自带 Git 仓库和初始提交。
 
 进入项目目录，创建 npm 配置文件：
 

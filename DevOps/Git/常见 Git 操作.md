@@ -58,7 +58,7 @@ git fetch origin
 git branch temp origin/master
 ```
 
-基于本地 temp 分支合并当前分支的变更：
+基于本地 temp 分支合并当前分支的变更到当前分支：
 
 ```shell
 git rebase temp

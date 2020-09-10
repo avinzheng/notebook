@@ -12,23 +12,7 @@ ionic start <app> blank --cordova --type=angular --no-deps
 
 > **Tips**: 创建的应用使用 Cordova 平台，使用 Angular 框架，并自带 Git 仓库。
 
-### 配置 Git 仓库
-
-在 Git 仓库托管平台（Github、Gitee 等）创建空的 Git 仓库（不勾选初始化）。
-
-进入应用目录，添加远程仓库，并标记为 origin：
-
-```shell
-git remote add origin <repository>
-```
-
-将本地 master 分支推送到 origin/master，并建立追踪关系：
-
-```shell
-git push -u origin master
-```
-
-### 配置 Angular CLI
+### 安装配置 Angular CLI
 
 使用 Yarn 全局安装 Angular CLI：
 
@@ -72,12 +56,28 @@ echo "registry=https://registry.npm.taobao.org" >> .npmrc
 使用 Yarn 安装依赖：
 
 ```shell
-yarn --ignore-optional
+yarn
 ```
 
-> **Tips:** 忽略可选依赖是为了避免在 macOS 上安装 `fsevents@1.2.7` 依赖时出错。
+### 配置 Git 仓库
+
+在 Git 仓库托管平台（Github、Gitee 等）创建空的 Git 仓库（不勾选初始化）。
+
+进入应用目录，添加远程仓库，并标记为 origin：
+
+```shell
+git remote add origin <repository>
+```
+
+将本地 master 分支推送到 origin/master，并建立追踪关系：
+
+```shell
+git push -u origin master
+```
 
 ## 移除测试内容
+
+如果项目不需要 E2E 测试和单元测试，可以移除相关依赖和文件。
 
 ### 移除相关依赖
 
@@ -95,9 +95,7 @@ rm -rf karma.conf.js tsconfig.spec.json e2e src/test.ts src/**/*.spec.ts
 
 ### 修改 Angular 配置
 
-打开 Angular 配置文件 `angular.json` 。
-
-找到 `projects.app.schematics` 配置项，其值替换为：
+打开 Angular 配置文件 `angular.json` ，找到 `projects.app.schematics` 配置项，其值替换为：
 
 ```json
 {
@@ -128,124 +126,23 @@ rm -rf karma.conf.js tsconfig.spec.json e2e src/test.ts src/**/*.spec.ts
 
 找到 `projects.app.architect` 配置项，删除下面 `test` 和 `e2e` 节点内容，其下面 `lint.options.tsConfig` 值替换成 `["tsconfig.app.json"]` 。
 
-找到 `schematics` 配置项，其值改为：
-
-```json
-{
-  "@ionic/angular-toolkit:component": {
-    "styleext": "scss",
-    "spec": false
-  },
-  "@ionic/angular-toolkit:page": {
-    "styleext": "scss",
-    "spec": false
-  },
-  "@ionic/angular-toolkit:class": {
-    "spec": false
-  },
-  "@ionic/angular-toolkit:directive": {
-    "spec": false
-  },
-  "@ionic/angular-toolkit:guard": {
-    "spec": false
-  },
-  "@ionic/angular-toolkit:module": {
-    "spec": false
-  },
-  "@ionic/angular-toolkit:pipe": {
-    "spec": false
-  },
-  "@ionic/angular-toolkit:service": {
-    "spec": false
-  }
-}
-```
-
 ## 代码质量管理
 
-### EditorConfig
+### Prettier
 
-在项目根目录创建 EditorConfig 配置文件 `.editorconfig` 并写入配置：
-
-```ini
-# Editor configuration, see https://editorconfig.org
-root = true
-
-[*]
-charset = utf-8
-indent_style = space
-indent_size = 2
-insert_final_newline = true
-max_line_length = 80
-trim_trailing_whitespace = true
-
-[*.md]
-max_line_length = off
-trim_trailing_whitespace = false
-```
-
-### TSLint & Prettier
-
-卸载旧版本的 TSLint 和 codelyzer：
+如需格式化代码，让所有代码风格保持一致，可安装最新版的 Prettier 和 TSLint 插件：
 
 ```shell
-yarn remove tslint codelyzer
+yarn add prettier tslint-config-prettier tslint-plugin-prettier --dev --tilde
 ```
 
-安装最新版的 TSLint、Prettier 和 TSLint 插件：
-
-```shell
-yarn add tslint prettier codelyzer tslint-config-prettier tslint-plugin-prettier --dev --tilde --ignore-optional
-```
-
-清空项目根目录的 TSLint 配置文件 `tslint.json` ，并重新写入配置：
+在 TSLint 配置文件 `tslint.json` 中添加对应配置：
 
 ```json
 {
   "extends": ["tslint:recommended", "tslint-config-prettier"],
   "rulesDirectory": ["codelyzer", "tslint-plugin-prettier"],
   "rules": {
-    "array-type": false,
-    "arrow-parens": false,
-    "deprecation": {"severity": "warn"},
-    "import-blacklist": [true, "rxjs/Rx"],
-    "interface-name": false,
-    "max-classes-per-file": false,
-    "member-access": false,
-    "member-ordering": [
-      true,
-      {
-        "order": [
-          "static-field",
-          "instance-field",
-          "static-method",
-          "instance-method"
-        ]
-      }
-    ],
-    "no-consecutive-blank-lines": false,
-    "no-console": [true, "debug", "info", "time", "timeEnd", "trace"],
-    "no-empty": false,
-    "no-inferrable-types": [true, "ignore-params"],
-    "no-non-null-assertion": true,
-    "no-redundant-jsdoc": true,
-    "no-switch-case-fall-through": true,
-    "no-var-requires": false,
-    "object-literal-sort-keys": false,
-    "ordered-imports": false,
-    "trailing-comma": false,
-    "no-output-on-prefix": true,
-    "no-inputs-metadata-property": true,
-    "no-host-metadata-property": true,
-    "no-input-rename": true,
-    "no-output-rename": true,
-    "use-lifecycle-interface": true,
-    "use-pipe-transform-interface": true,
-    "one-variable-per-declaration": false,
-    "component-class-suffix": [true, "Page", "Component"],
-    "directive-class-suffix": true,
-    "directive-selector": [true, "attribute", "app", "camelCase"],
-    "component-selector": [true, "element", "app", "page", "kebab-case"],
     "prettier": true
   }
 }
@@ -259,14 +156,14 @@ yarn add tslint prettier codelyzer tslint-config-prettier tslint-plugin-prettier
 }
 ```
 
-> **Tips:** Prettier 配置如果放在 `tslint.json` 中会导致 IDE 的 Prettier 插件无法识别出来。
+> **Tips:** Prettier 配置如果放在 `tslint.json` 中会导致 Webstorm Prettier 插件无法识别出来。
 
-### 提交前自动检查
+### Husky
 
-安装 Husky，用于在 Git 提交前添加钩子：
+如需在 Git 提交前强制进行 Lint 检查，可安装 Husky 在 Git 提交前添加钩子：
 
 ```shell
-yarn add husky --dev --tilde --ignore-optional
+yarn add husky --dev --tilde
 ```
 
 打开 `package.json` ，添加配置：
@@ -279,7 +176,7 @@ yarn add husky --dev --tilde --ignore-optional
 }
 ```
 
-在 Git 提交前会自动进行 Lint 检查， 不通过会报错阻止提交。
+在 Git 提交前会自动进行 Lint 检查，不通过会报错阻止提交。
 
 ## 参考文献
 
