@@ -40,6 +40,8 @@ console.log(eval('(() => 3)()')); // 3
 console.log(eval({ a: 1 })); // {a: 1}
 ```
 
+**CodePen：**[JavaScript eval() 函数的基本用法](https://codepen.io/avincheng/pen/YzqaYYa)
+
 非严格模式下直接调用 `eval()` ：
 
 ```javascript
@@ -93,6 +95,8 @@ console.log(eval({ a: 1 })); // {a: 1}
 }());
 ```
 
+**CodePen：** [JavaScript 非严格模式下直接调用 eval() 函数](https://codepen.io/avincheng/pen/JjXLMZy)
+
 非严格模式下间接引用 `eval()` ：
 
 ```javascript
@@ -136,6 +140,8 @@ ev2('const i = 1; let j = 2;');
 // console.log(j); // ReferenceError
 ```
 
+**CodePen：** [JavaScript 非严格模式下间接引用 eval() 函数](https://codepen.io/avincheng/pen/oNxqpMp)
+
 严格模式下直接调用 `eval()` ：
 
 ```javascript
@@ -160,6 +166,8 @@ ev2('const i = 1; let j = 2;');
   }());
 }());
 ```
+
+**CodePen：** [JavaScript 严格模式下直接调用 eval() 函数](https://codepen.io/avincheng/pen/wvGmpEb)
 
 严格模式下间接引用 `eval()` ：
 
@@ -187,6 +195,8 @@ var m = 0;
 console.log(m); // 0
 // console.log(fnM()); // ReferenceError
 ```
+
+**CodePen：** [JavaScript 严格模式下间接引用 eval() 函数](https://codepen.io/avincheng/pen/GRZxyYw)
 
 使用 `window.eval()` ：
 
@@ -235,6 +245,8 @@ var y = 0;
 console.log(y); // 0
 // console.log(fnY()); // ReferenceError
 ```
+
+**CodePen：** [JavaScript 使用 window.eval() 函数](https://codepen.io/avincheng/pen/ZEWxvVp)
 
 使用 `eval()` 不当引发 XSS 攻击：
 

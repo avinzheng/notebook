@@ -14,6 +14,10 @@
 * Security & Privacy
 * Browser
 * SEO
+* Cross-Platform
+
+  * Ionic / uni-app
+  * Electron / NW.js
 
 **Mobile**
 
@@ -47,11 +51,6 @@
 * TLS
 * DNS
 
-**Cross-Platform**
-
-* Ionic / MUI
-* Electron / NW.js
-
 **DevOps**
 
 * Git
@@ -64,11 +63,9 @@
 * FEED (Front End Engineering & Design)
 
   * Shell
-  * Gulp
-  * Webpack
+  * Gulp & Webpack
   * Linting & Testing
-* macOS
-* Windows
+* Development Utilities
 
 **Data Structure & Algorithm**
 
